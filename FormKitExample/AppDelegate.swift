@@ -11,11 +11,21 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupKeyWindow()
         return true
+    }
+
+    private func setupKeyWindow() {
+        let vc = ViewController(nibName: nil, bundle: nil)
+        let navVC = UINavigationController(rootViewController: vc)
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navVC
+        window?.makeKeyAndVisible()
     }
 
     // MARK: UISceneSession Lifecycle
