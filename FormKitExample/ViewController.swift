@@ -36,14 +36,13 @@ class ViewController: UIViewController {
     private var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.rowHeight = UITableView.automaticDimension
-        view.backgroundColor = .tertiarySystemBackground
+        view.backgroundColor = .systemGray6
         return view
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
         title = "Fruit Shop"
 
         tableView.dataSource = self
