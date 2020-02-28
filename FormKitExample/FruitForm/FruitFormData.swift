@@ -39,21 +39,21 @@ class FruitFormData: NSObject, FormDataSource {
 
         basicRows.append(StringRow(title: "Name",
                                    icon: "",
-                                   updateTag: "",
+                                   updateTag: "name",
                                    value: fruit.name ?? "",
                                    placeholder: nil,
                                    validation: nil))
 
         basicRows.append(DoubleRow(title: "Price",
                                    icon: "",
-                                   updateTag: "",
+                                   updateTag: "price",
                                    value: fruit.price,
                                    placeholder: "",
                                    validation: nil))
 
         basicRows.append(DoubleRow(title: "Weight",
                                    icon: "",
-                                   updateTag: "",
+                                   updateTag: "weight",
                                    value: fruit.weight,
                                    placeholder: "",
                                    validation: nil))

@@ -29,12 +29,8 @@ class FruitFormVC: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
     }
 
-    private func dismiss() {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-
     @objc private func saveButtonTapped() {
-        // Do nothing
+        navigationController?.popViewController(animated: true)
     }
 
     required init?(coder aDecoder: NSCoder) {

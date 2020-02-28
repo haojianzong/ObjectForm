@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         title = "Fruit Shop"
 
         tableView.dataSource = self
+        tableView.delegate = self
 
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,6 +58,19 @@ class ViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let fruit = fruitList[indexPath.row]
+        let fruitFormVC = FruitFormVC(fruit)
+        navigationController?.pushViewController(fruitFormVC, animated: true)
     }
 }
 
