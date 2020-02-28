@@ -10,7 +10,17 @@ import Foundation
 
 @objc class Fruit: NSObject {
     var name: String?
-    var price: String?
+    var price: Double?
     var weight: Double?
-    var date: String?
+    var seller: String?
+    var note: String?
+
+    convenience init(name: String?, price: Double?, weight: Double?, seller: String?, note: String?) {
+        self.init()
+        self.name = name
+        self.price = price
+        self.weight = weight
+        self.seller = seller
+        self.note = note
+    }
 }
