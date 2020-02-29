@@ -81,7 +81,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
         cell.textLabel?.text = fruitList[indexPath.row].name
-        cell.detailTextLabel?.text = String(fruitList[indexPath.row].price ?? 0)
+        cell.detailTextLabel?.text = String(fruitList[indexPath.row].price)
         return cell
     }
 }

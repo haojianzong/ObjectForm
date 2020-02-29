@@ -17,7 +17,7 @@ public protocol FormCellDelegate: AnyObject {
 // Define common styles & validation
 public class FormInputCell: UITableViewCell {
 
-    static let identifier = "FormInputCell"
+    public static let identifier = "FormInputCell"
 
     public weak var delegate: FormCellDelegate?
 

@@ -9,11 +9,6 @@
 import Foundation
 import UIKit
 
-enum SaveState : Int {
-    case validateFail
-    case success
-}
-
 /// bind/get model for the form
 public protocol Bindable {
     associatedtype BindModel: NSObject

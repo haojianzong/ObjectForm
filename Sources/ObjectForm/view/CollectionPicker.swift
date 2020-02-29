@@ -14,7 +14,7 @@ protocol CollectionPicker {
     init(collection: [Any], completionCallback:@escaping PickerCompletionBlock)
 }
 
-class TableCollectionPicker: UIViewController, CollectionPicker {
+public class TableCollectionPicker: UIViewController, CollectionPicker {
 
     public var selectedRow: Int? {
         didSet {
@@ -55,15 +55,15 @@ class TableCollectionPicker: UIViewController, CollectionPicker {
 
 extension TableCollectionPicker: UITableViewDataSource, UITableViewDelegate {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return collection.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifier)!
         cell.textLabel?.text = String(describing: collection[indexPath.row])
         if let selectedRow = selectedRow,
@@ -73,7 +73,7 @@ extension TableCollectionPicker: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         completionCallback?(indexPath.row)
         navigationController?.popViewController(animated: true)
     }

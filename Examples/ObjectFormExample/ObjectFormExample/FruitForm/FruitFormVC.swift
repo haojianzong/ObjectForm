@@ -48,7 +48,8 @@ class FruitFormVC: UIViewController {
         tableView.delegate = self
 
         view.addSubview(tableView)
-
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
