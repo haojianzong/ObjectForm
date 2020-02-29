@@ -33,7 +33,7 @@ This project has no dependency of any other library.
 
 ## Copy sources
 
-Copy files under [/Sources](/tree/master/Sources/ObjectForm) into your project.
+Copy files under [/Sources](tree/master/Sources/ObjectForm) into your project.
 
 ### Carthage (Coming soon)
 
