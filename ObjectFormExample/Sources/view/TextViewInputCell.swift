@@ -19,7 +19,7 @@ class TextViewInputCell: FormInputCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         textField.isUserInteractionEnabled = false
-        disclosureBtn.isHidden = false
+        accessoryType = .disclosureIndicator
 
         textViewVC.delegate = self
     }
