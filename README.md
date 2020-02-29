@@ -44,6 +44,15 @@ This project has no depenency of any other library.
 
 ## Usage
 
+1. Copy sources
+
+Copy files under [/Sources](https://github.com/haojianzong/ObjectForm/tree/master/ObjectFormExample/Sources) into your project.
+
+2. Carthage (Coming soon)
+2. Swift Package (Coming soon)
+
+### Tutorials
+
 You can follow the example in `ObjectFormExample` to learn how to build a simplke form with a class model. 
 
 ### Binding Model to Form
