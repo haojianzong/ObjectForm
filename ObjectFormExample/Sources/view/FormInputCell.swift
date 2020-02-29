@@ -36,18 +36,10 @@ class FormInputCell: UITableViewCell {
         return textField
     }()
 
-    let disclosureBtn: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "disclosure_btn")
-        imageView.isHidden = true
-        imageView.contentMode = .center
-        return imageView
-    }()
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        let hStack = UIStackView(arrangedSubviews: [titleLabel, textField, disclosureBtn])
+        let hStack = UIStackView(arrangedSubviews: [titleLabel, textField])
         contentView.addSubview(hStack)
         hStack.setCustomSpacing(16.0, after: titleLabel)
         hStack.setCustomSpacing(8.0, after: textField)
