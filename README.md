@@ -15,7 +15,7 @@ I found most form libraries for swift are too complicated to bootstrap a simple 
 
 ObjectForm doesn't fight with you to write UIKit code. By design, it is simple to understand and extend. If you follow the example project carefully, you would find it easy to fit in your Swift project.
 
-This project has no depenency of any other library.
+This project has no dependency of any other library.
 
 ## Features
 - Bind class model to form rows
@@ -53,7 +53,7 @@ Copy files under [/Sources](https://github.com/haojianzong/ObjectForm/tree/maste
 
 ### Tutorials
 
-You can follow the example in `ObjectFormExample` to learn how to build a simplke form with a class model.
+You can follow the example in `ObjectFormExample` to learn how to build a simple form with a class model. 
 
 ### Binding Model to Form
 
