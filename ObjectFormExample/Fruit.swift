@@ -12,15 +12,15 @@ import Foundation
     @objc dynamic var name: String?
     @objc dynamic var price: Double = 0
     @objc dynamic var weight: Double = 0
-    @objc dynamic var seller: String?
+    @objc dynamic var retailer: String?
     @objc dynamic var note: String?
 
-    convenience init(name: String?, price: Double, weight: Double, seller: String?, note: String?) {
+    convenience init(name: String?, price: Double, weight: Double, retailer: String?, note: String?) {
         self.init()
         self.name = name
         self.price = price
         self.weight = weight
-        self.seller = seller
+        self.retailer = retailer
         self.note = note
     }
 }

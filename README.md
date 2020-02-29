@@ -122,7 +122,7 @@ extension FruitFormVC: FormCellDelegate {
 
 ### Validate Data
 
-<img src="https://github.com/haojianzong/ObjectForm/blob/master/validation.gif?raw=true"/>
+<img width="200" align="left" src="https://github.com/haojianzong/ObjectForm/blob/master/validation.gif?raw=true" />
 
 ```swift
         basicRows.append(StringRow(title: "Name",
@@ -147,6 +147,10 @@ extension FruitFormVC: FormCellDelegate {
         navigationController?.popViewController(animated: true)
     }
 ```
+
+### Make Your Own Row
+
+
 
 License
 -------

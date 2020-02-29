@@ -46,9 +46,24 @@ class FruitFormVC: UIViewController {
         super.viewDidLoad()
 
         tableView.dataSource = self
+        tableView.delegate = self
 
         view.addSubview(tableView)
         tableView.pinEdges(to: view)
+    }
+}
+
+extension FruitFormVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let row = dataSource.row(at: indexPath)
+        switch row {
+        case let stringSelectRow as SelectRow<String>:
+            stringSelectRow.cell.showPicker(in: self)
+        default:
+            break
+        }
     }
 }
 

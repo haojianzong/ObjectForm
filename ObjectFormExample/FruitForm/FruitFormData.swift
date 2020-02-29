@@ -64,6 +64,12 @@ class FruitFormData: NSObject, FormDataSource {
         basicRows.append(TextViewRow(title: "Note",
                                      updateTag: "note",
                                      value: fruit.note ?? "-"))
+
+        basicRows.append(SelectRow(title: "Retailer",
+                                   icon: "",
+                                   updateTag: "retailer",
+                                   value: fruit.retailer,
+                                     listOfValues: ["Walmart", "McDonald", "Carrefour"]))
     }
 
     override init() { fatalError("not implemented") }
