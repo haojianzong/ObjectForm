@@ -21,7 +21,7 @@ public class FormInputCell: UITableViewCell {
 
     public weak var delegate: FormCellDelegate?
 
-    let titleLabel: UILabel = {
+    public let titleLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byTruncatingTail
         label.font = .systemFont(ofSize: 17.0)
@@ -29,7 +29,7 @@ public class FormInputCell: UITableViewCell {
         return label
     }()
 
-    let textField: UITextField = {
+    public let textField: UITextField = {
         let textField = UITextField()
         textField.textAlignment = .right
         textField.font = .systemFont(ofSize: 17.0)

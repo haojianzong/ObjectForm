@@ -34,7 +34,7 @@ public class TableCollectionPicker: UIViewController, CollectionPicker {
     private var completionCallback: PickerCompletionBlock?
     private var collection: [Any]
 
-    required init(collection: [Any], completionCallback: @escaping PickerCompletionBlock) {
+    public required init(collection: [Any], completionCallback: @escaping PickerCompletionBlock) {
         self.completionCallback = completionCallback
         self.collection = collection
         super.init(nibName: nil, bundle: nil)
