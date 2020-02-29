@@ -10,20 +10,20 @@ import Foundation
 import UIKit
 
 // MARK: - NSLayoutDimension shortcuts
-public extension UIView {
+extension UIView {
 
     struct PinOptions: OptionSet {
 
-        public let rawValue: Int
+        let rawValue: Int
 
-        public static let all: PinOptions = [.top, .trailing, .bottom, .leading]
+        static let all: PinOptions = [.top, .trailing, .bottom, .leading]
 
-        public static let top = PinOptions(rawValue: 1 << 0)
-        public static let trailing = PinOptions(rawValue: 1 << 1)
-        public static let bottom = PinOptions(rawValue: 1 << 2)
-        public static let leading = PinOptions(rawValue: 1 << 3)
+        static let top = PinOptions(rawValue: 1 << 0)
+        static let trailing = PinOptions(rawValue: 1 << 1)
+        static let bottom = PinOptions(rawValue: 1 << 2)
+        static let leading = PinOptions(rawValue: 1 << 3)
 
-        public init(rawValue: Int) {
+        init(rawValue: Int) {
             self.rawValue = rawValue
         }
     }

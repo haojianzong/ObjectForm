@@ -48,7 +48,13 @@ class FruitFormVC: UIViewController {
         tableView.delegate = self
 
         view.addSubview(tableView)
-        tableView.pinEdges(to: view)
+
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }
 
