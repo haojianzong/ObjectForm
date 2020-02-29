@@ -124,7 +124,7 @@ extension FruitFormVC: FormCellDelegate {
 
 ### Validate Data
 
-<img width="200" align="left" src="https://github.com/haojianzong/ObjectForm/blob/master/validation.gif?raw=true" />
+<img width="300" src="https://github.com/haojianzong/ObjectForm/blob/master/validation.gif?raw=true" />
 
 ```swift
         basicRows.append(StringRow(title: "Name",
