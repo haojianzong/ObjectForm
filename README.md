@@ -33,7 +33,7 @@ This project has no dependency of any other library.
 
 ## Copy sources
 
-Copy files under [/Sources](tree/master/Sources/ObjectForm) into your project.
+Copy files under [/Sources](https://github.com/haojianzong/ObjectForm/tree/master/Sources/ObjectForm) into your project.
 
 ### Carthage (Coming soon)
 
@@ -63,7 +63,7 @@ Copy files under [/Sources](tree/master/Sources/ObjectForm) into your project.
 
 ### Tutorials
 
-You can follow [ObjectFormExample](/tree/master/Sources/ObjectFormExample) in `ObjectFormExample` to learn how to build a simple form with a class model. 
+You can follow [ObjectFormExample](https://github.com/haojianzong/ObjectForm/tree/master/Examples/ObjectFormExample) in `ObjectFormExample` to learn how to build a simple form with a class model. 
 
 ### Binding Model to Form
 
