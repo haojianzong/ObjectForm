@@ -7,7 +7,7 @@ ObjectForm
 
 A simple yet powerful library to build form for your class models.
 
-<img width="200" align="left" src="https://github.com/haojianzong/ObjectForm/blob/master/demo.gif?raw=true" />
+<img width="200" src="https://github.com/haojianzong/ObjectForm/blob/master/demo.gif?raw=true" />
 
 ## Motivations
 
