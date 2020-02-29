@@ -5,7 +5,7 @@
 FormKit
 =======
 
-A simple yet powerful component to build form for your class models.
+A simple yet powerful library to build form for your class models.
 
 ## Motivations
 
