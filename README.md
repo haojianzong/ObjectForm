@@ -127,27 +127,27 @@ extension FruitFormVC: FormCellDelegate {
 <img width="300" src="https://github.com/haojianzong/ObjectForm/blob/master/validation.gif?raw=true" />
 
 ```swift
-        basicRows.append(StringRow(title: "Name",
-                                   icon: "",
-                                   updateTag: "name",
-                                   value: fruit.name ?? "",
-                                   placeholder: nil,
-                                   validation: {
-                                   // Custom rules for row validation
-                                    return !(fruit.name?.isEmpty ?? true)
+basicRows.append(StringRow(title: "Name",
+                           icon: "",
+                           updateTag: "name",
+                           value: fruit.name ?? "",
+                           placeholder: nil,
+                           validation: {
+                           // Custom rules for row validation
+                            return !(fruit.name?.isEmpty ?? true)
 
-        }))
+}))
 ```
 
 ```swift
-    @objc private func saveButtonTapped() {
-        guard dataSource.validateData() else {
-            tableView.reloadData()
-            return
-        }
-
-        navigationController?.popViewController(animated: true)
+@objc private func saveButtonTapped() {
+    guard dataSource.validateData() else {
+        tableView.reloadData()
+        return
     }
+
+    navigationController?.popViewController(animated: true)
+}
 ```
 
 ### Make Your Own Row
