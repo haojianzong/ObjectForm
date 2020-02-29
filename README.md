@@ -131,7 +131,9 @@ extension FruitFormVC: FormCellDelegate {
 }
 ```
 
-### Validate Data
+### Data Validation
+
+By providing a validation block when building a row, you can provide any validaiton rules.
 
 <img width="300" src="https://github.com/haojianzong/ObjectForm/blob/master/validation.gif?raw=true" />
 
