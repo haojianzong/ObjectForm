@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TextViewInputCell: FormInputCell {
+public class TextViewInputCell: FormInputCell {
 
     private let textViewVC = TextViewVC()
 
@@ -28,12 +28,12 @@ class TextViewInputCell: FormInputCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func showTextView(in vc: UIViewController) {
+    public func showTextView(in vc: UIViewController) {
         textViewVC.textView.text = textViewRow?.value
         vc.navigationController?.pushViewController(textViewVC, animated: true)
     }
 
-    override func setup(_ row: BaseRow) {
+    public override func setup(_ row: BaseRow) {
         guard let row = row as? TextViewRow else {
             assertionFailure("Row type must match cell type")
             return

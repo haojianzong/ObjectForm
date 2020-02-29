@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TypedInputCell<T>: FormInputCell {
+public class TypedInputCell<T>: FormInputCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -45,7 +45,7 @@ class TypedInputCell<T>: FormInputCell {
         }
     }
 
-    override func setup(_ row: BaseRow) {
+    public override func setup(_ row: BaseRow) {
 
         titleLabel.text = row.title
         if let number = row.baseValue as? Double, number < Double.ulpOfOne {
@@ -67,12 +67,12 @@ class TypedInputCell<T>: FormInputCell {
         self.delegate?.cellDidChangeValue(self, value: outputValue)
     }
 
-    override func becomeFirstResponder() -> Bool {
+    public override func becomeFirstResponder() -> Bool {
         super.becomeFirstResponder()
         return textField.becomeFirstResponder()
     }
 
-    override func resignFirstResponder() -> Bool {
+    public override func resignFirstResponder() -> Bool {
         super.resignFirstResponder()
         return textField.resignFirstResponder()
     }

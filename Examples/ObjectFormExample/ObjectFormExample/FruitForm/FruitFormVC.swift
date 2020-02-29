@@ -6,8 +6,7 @@
 //  Copyright © 2020 Mocha. All rights reserved.
 //
 
-import Foundation
-import CoreData
+import ObjectForm
 import UIKit
 
 class FruitFormVC: UIViewController {
