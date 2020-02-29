@@ -21,9 +21,9 @@ This project has no dependency of any other library.
 - Bind class model to form rows
 - Work well with UITableView
 - Customize keyboards according to model types
-- Type safe
-- Form validation is supported
-- A list of Built-in UITableViewCell to support multiple types
+- Form rows are type safe
+- Fully customizable form validation rules
+- A list of built-in UITableViewCell to support multiple types
 
 ## Available Rows & Cells
 
@@ -44,16 +44,21 @@ This project has no dependency of any other library.
 
 ## Usage
 
-1. Copy sources
+## Copy sources
 
-Copy files under [/Sources](https://github.com/haojianzong/ObjectForm/tree/master/ObjectFormExample/Sources) into your project.
+Copy files under [/Sources](/tree/master/Sources/ObjectForm) into your project.
 
-2. Carthage (Coming soon)
-2. Swift Package (Coming soon)
+### Carthage (Coming soon)
+
+### [Swift Package Manager](https://swift.org/package-manager/)
+
+1. Click "Files -> Swift Package Manager -> Add Package Dependency..." in Xcode's menu
+2. Search "https://github.com/haojianzong/ObjectForm".
+3. Select "master" branch or input "Next major version"
 
 ### Tutorials
 
-You can follow the example in `ObjectFormExample` to learn how to build a simple form with a class model. 
+You can follow [ObjectFormExample](/tree/master/Sources/ObjectFormExample) in `ObjectFormExample` to learn how to build a simple form with a class model. 
 
 ### Binding Model to Form
 
