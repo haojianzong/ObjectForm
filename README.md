@@ -73,7 +73,7 @@ class FruitFormData: NSObject, FormDataSource {
                                  placeholder: "",
                                  validation: nil))
 
-      // You can make as many rows as needed
+      // You can build as many rows as you want
       basicRows.append(TextViewRow(title: "Note",
                                    updateTag: "note",
                                    value: fruit.note ?? "-"))
