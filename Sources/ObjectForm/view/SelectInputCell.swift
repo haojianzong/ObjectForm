@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-protocol SelectCellOutputible {
+public protocol SelectCellOutputible {
     // Output value is used to update the model
     var outputValue: Any? { get }
 }
 
 extension String: SelectCellOutputible {
-    var outputValue: Any? {
+    public var outputValue: Any? {
         return self
     }
 }
 
-class SelectInputCell<T: SelectRowConvertible>: FormInputCell {
+public class SelectInputCell<T: SelectRowConvertible>: FormInputCell {
     
     typealias ValueChangedBlock = ((T) -> Void)
 
@@ -57,13 +57,13 @@ class SelectInputCell<T: SelectRowConvertible>: FormInputCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func showPicker(in vc: UIViewController) {
+    public func showPicker(in vc: UIViewController) {
         if let collectionPicker = collectionPicker {
             vc.navigationController?.pushViewController(collectionPicker, animated: true)
         }
     }
 
-    override func setup(_ row: BaseRow) {
+    public override func setup(_ row: BaseRow) {
         guard let row = row as? SelectRow<T> else {
             assertionFailure("Row type must match cell type")
             return

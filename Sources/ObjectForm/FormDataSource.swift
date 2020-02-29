@@ -15,13 +15,13 @@ enum SaveState : Int {
 }
 
 /// bind/get model for the form
-protocol Bindable {
+public protocol Bindable {
     associatedtype BindModel: NSObject
     var bindModel: BindModel { set get }
 }
 
 /// Conform to feed UITableView with editable rows
-protocol FormDataSource: Bindable {
+public protocol FormDataSource: Bindable {
     func numberOfSections() -> Int
     func numberOfRows(at section: Int) -> Int
     func row(at indexPath: IndexPath) -> BaseRow
@@ -34,7 +34,7 @@ protocol FormDataSource: Bindable {
 extension FormDataSource {
 
     /// TODO: refactor updateItem and save as protocol method with default implementations
-    func updateItem(at indexPath: IndexPath, value: Any?) -> Bool {
+    public func updateItem(at indexPath: IndexPath, value: Any?) -> Bool {
         let currentRow = row(at: indexPath)
         guard let keyPath = currentRow.updateTag else {
             assertionFailure("Row keyPath should not be empty")
@@ -60,7 +60,7 @@ extension FormDataSource {
         }
     }
 
-    func validateData() -> Bool {
+    public func validateData() -> Bool {
         var isValid = true
 
         for section in 0..<numberOfSections() {

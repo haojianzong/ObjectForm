@@ -9,17 +9,17 @@
 import Foundation
 import UIKit
 
-protocol FormCellDelegate: AnyObject {
+public protocol FormCellDelegate: AnyObject {
     // Notify that the cell's value has been changed
     func cellDidChangeValue(_ cell: UITableViewCell, value: Any?)
 }
 
 // Define common styles & validation
-class FormInputCell: UITableViewCell {
+public class FormInputCell: UITableViewCell {
 
     static let identifier = "FormInputCell"
 
-    weak var delegate: FormCellDelegate?
+    public weak var delegate: FormCellDelegate?
 
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -50,7 +50,7 @@ class FormInputCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setup(_ row: BaseRow) {
+    public func setup(_ row: BaseRow) {
         fatalError("Subclass must override")
     }
 }

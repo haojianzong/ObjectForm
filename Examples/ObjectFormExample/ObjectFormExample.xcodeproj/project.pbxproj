@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,18 +14,9 @@
 		23D8AB232409D3890093E615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23D8AB222409D3890093E615 /* Assets.xcassets */; };
 		23D8AB262409D3890093E615 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D8AB242409D3890093E615 /* LaunchScreen.storyboard */; };
 		23D8AB2F2409D6510093E615 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB2E2409D6510093E615 /* Fruit.swift */; };
-		23D8AB322409D7240093E615 /* FormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB302409D7240093E615 /* FormRow.swift */; };
-		23D8AB332409D7240093E615 /* FormDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB312409D7240093E615 /* FormDataSource.swift */; };
-		23D8AB452409D7670093E615 /* TextViewInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB3E2409D7670093E615 /* TextViewInputCell.swift */; };
-		23D8AB462409D7670093E615 /* SelectInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB3F2409D7670093E615 /* SelectInputCell.swift */; };
-		23D8AB472409D7670093E615 /* CollectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB402409D7670093E615 /* CollectionPicker.swift */; };
-		23D8AB482409D7670093E615 /* TextViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB412409D7670093E615 /* TextViewVC.swift */; };
-		23D8AB492409D7670093E615 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB422409D7670093E615 /* ButtonCell.swift */; };
-		23D8AB4A2409D7670093E615 /* TypedInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB432409D7670093E615 /* TypedInputCell.swift */; };
-		23D8AB4B2409D7670093E615 /* FormInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB442409D7670093E615 /* FormInputCell.swift */; };
-		23D8AB4D2409D77C0093E615 /* LayoutUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB4C2409D77C0093E615 /* LayoutUtility.swift */; };
 		23D8AB4F2409D8A20093E615 /* FruitFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB4E2409D8A20093E615 /* FruitFormVC.swift */; };
 		23D8AB512409D8B00093E615 /* FruitFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8AB502409D8B00093E615 /* FruitFormData.swift */; };
+		8C2D8C56240AB3850012D1F3 /* ObjectForm in Frameworks */ = {isa = PBXBuildFile; productRef = 8C2D8C55240AB3850012D1F3 /* ObjectForm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,18 +29,9 @@
 		23D8AB252409D3890093E615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23D8AB272409D3890093E615 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23D8AB2E2409D6510093E615 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
-		23D8AB302409D7240093E615 /* FormRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRow.swift; sourceTree = "<group>"; };
-		23D8AB312409D7240093E615 /* FormDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataSource.swift; sourceTree = "<group>"; };
-		23D8AB3E2409D7670093E615 /* TextViewInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewInputCell.swift; sourceTree = "<group>"; };
-		23D8AB3F2409D7670093E615 /* SelectInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInputCell.swift; sourceTree = "<group>"; };
-		23D8AB402409D7670093E615 /* CollectionPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionPicker.swift; sourceTree = "<group>"; };
-		23D8AB412409D7670093E615 /* TextViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewVC.swift; sourceTree = "<group>"; };
-		23D8AB422409D7670093E615 /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
-		23D8AB432409D7670093E615 /* TypedInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedInputCell.swift; sourceTree = "<group>"; };
-		23D8AB442409D7670093E615 /* FormInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormInputCell.swift; sourceTree = "<group>"; };
-		23D8AB4C2409D77C0093E615 /* LayoutUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutUtility.swift; sourceTree = "<group>"; };
 		23D8AB4E2409D8A20093E615 /* FruitFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitFormVC.swift; sourceTree = "<group>"; };
 		23D8AB502409D8B00093E615 /* FruitFormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitFormData.swift; sourceTree = "<group>"; };
+		8C2D8C53240AB3710012D1F3 /* ObjectForm */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ObjectForm; path = ../..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C2D8C56240AB3850012D1F3 /* ObjectForm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +49,7 @@
 		23D8AB0D2409D3870093E615 = {
 			isa = PBXGroup;
 			children = (
+				8C2D8C53240AB3710012D1F3 /* ObjectForm */,
 				23D8AB182409D3870093E615 /* ObjectFormExample */,
 				23D8AB172409D3870093E615 /* Products */,
 			);
@@ -83,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				23D8AB522409D8BA0093E615 /* FruitForm */,
-				23D8AB2D2409D38F0093E615 /* Sources */,
 				23D8AB192409D3870093E615 /* AppDelegate.swift */,
 				23D8AB1B2409D3870093E615 /* SceneDelegate.swift */,
 				23D8AB1D2409D3870093E615 /* ViewController.swift */,
@@ -94,31 +77,6 @@
 				23D8AB2E2409D6510093E615 /* Fruit.swift */,
 			);
 			path = ObjectFormExample;
-			sourceTree = "<group>";
-		};
-		23D8AB2D2409D38F0093E615 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				23D8AB3D2409D7670093E615 /* view */,
-				23D8AB312409D7240093E615 /* FormDataSource.swift */,
-				23D8AB302409D7240093E615 /* FormRow.swift */,
-				23D8AB4C2409D77C0093E615 /* LayoutUtility.swift */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		23D8AB3D2409D7670093E615 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				23D8AB3E2409D7670093E615 /* TextViewInputCell.swift */,
-				23D8AB3F2409D7670093E615 /* SelectInputCell.swift */,
-				23D8AB402409D7670093E615 /* CollectionPicker.swift */,
-				23D8AB412409D7670093E615 /* TextViewVC.swift */,
-				23D8AB422409D7670093E615 /* ButtonCell.swift */,
-				23D8AB432409D7670093E615 /* TypedInputCell.swift */,
-				23D8AB442409D7670093E615 /* FormInputCell.swift */,
-			);
-			path = view;
 			sourceTree = "<group>";
 		};
 		23D8AB522409D8BA0093E615 /* FruitForm */ = {
@@ -146,6 +104,9 @@
 			dependencies = (
 			);
 			name = ObjectFormExample;
+			packageProductDependencies = (
+				8C2D8C55240AB3850012D1F3 /* ObjectForm */,
+			);
 			productName = FormKitExample;
 			productReference = 23D8AB162409D3870093E615 /* ObjectFormExample.app */;
 			productType = "com.apple.product-type.application";
@@ -201,22 +162,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23D8AB452409D7670093E615 /* TextViewInputCell.swift in Sources */,
-				23D8AB472409D7670093E615 /* CollectionPicker.swift in Sources */,
-				23D8AB482409D7670093E615 /* TextViewVC.swift in Sources */,
 				23D8AB2F2409D6510093E615 /* Fruit.swift in Sources */,
 				23D8AB1E2409D3870093E615 /* ViewController.swift in Sources */,
-				23D8AB462409D7670093E615 /* SelectInputCell.swift in Sources */,
-				23D8AB492409D7670093E615 /* ButtonCell.swift in Sources */,
-				23D8AB332409D7240093E615 /* FormDataSource.swift in Sources */,
-				23D8AB4A2409D7670093E615 /* TypedInputCell.swift in Sources */,
 				23D8AB1A2409D3870093E615 /* AppDelegate.swift in Sources */,
 				23D8AB1C2409D3870093E615 /* SceneDelegate.swift in Sources */,
-				23D8AB4B2409D7670093E615 /* FormInputCell.swift in Sources */,
-				23D8AB4D2409D77C0093E615 /* LayoutUtility.swift in Sources */,
 				23D8AB4F2409D8A20093E615 /* FruitFormVC.swift in Sources */,
 				23D8AB512409D8B00093E615 /* FruitFormData.swift in Sources */,
-				23D8AB322409D7240093E615 /* FormRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +365,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8C2D8C55240AB3850012D1F3 /* ObjectForm */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ObjectForm;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 23D8AB0E2409D3870093E615 /* Project object */;
 }

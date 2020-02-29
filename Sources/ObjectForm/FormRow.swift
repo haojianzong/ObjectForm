@@ -13,8 +13,8 @@ protocol Taggable: AnyObject {
     var updateTag: String? { get set }
 }
 
-class BaseRow : NSObject, Taggable {
-    typealias validationBlock = (() -> Bool)
+public class BaseRow : NSObject, Taggable {
+    public typealias validationBlock = (() -> Bool)
 
     var title: String?
     var icon: String?
@@ -23,7 +23,7 @@ class BaseRow : NSObject, Taggable {
     var validation: validationBlock?
     var validationFailed: Bool?
 
-    var baseCell: FormInputCell {
+    public var baseCell: FormInputCell {
         fatalError("Subclass should override")
     }
 
@@ -34,7 +34,7 @@ class BaseRow : NSObject, Taggable {
 }
 
 /// Model for inputing a value
-class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable {
+public class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable {
     public override var baseValue: CustomStringConvertible? {
         get { return value }
         set { value = newValue as? T }
@@ -45,12 +45,13 @@ class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable {
     }
 
     var value: T?
-    let cell: TypedInputCell<T>
+    public let cell: TypedInputCell<T>
 
-    override var description: String {
+    public override var description: String {
         return value?.description ?? ""
     }
-    required init(title: String, icon: String, updateTag: String, value: T?, placeholder: String? = nil, validation: validationBlock? = nil) {
+
+    public required init(title: String, icon: String, updateTag: String, value: T?, placeholder: String? = nil, validation: validationBlock? = nil) {
         self.cell = TypedInputCell()
         super.init()
         self.title = title
@@ -62,11 +63,12 @@ class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable {
     }
 }
 
-typealias SelectRowConvertible = CustomStringConvertible&SelectCellOutputible&Equatable
-/// Model for a row that selects a value from a list of values
-class SelectRow<T>: BaseRow where T: SelectRowConvertible {
+public typealias SelectRowConvertible = CustomStringConvertible & SelectCellOutputible & Equatable
 
-    typealias ValueChangedBlock = ((T?) -> Void)
+/// Model for a row that selects a value from a list of values
+public class SelectRow<T>: BaseRow where T: SelectRowConvertible {
+
+    public typealias ValueChangedBlock = ((T?) -> Void)
 
     public override var baseValue: CustomStringConvertible? {
         get { return value }
@@ -77,20 +79,22 @@ class SelectRow<T>: BaseRow where T: SelectRowConvertible {
     }
 
     var value: T?
-    var cell: SelectInputCell<T>
+    public var cell: SelectInputCell<T>
 
     private var valueChangeBlock: ValueChangedBlock?
     
-    override var description: String {
+    public override var description: String {
         return value?.description ?? ""
     }
 
-    required init(title: String,
-                  icon: String,
-                  updateTag: String,
-                  value: T?,
-                  listOfValues: [T],
-                  valueChangeBlock: ValueChangedBlock? = nil) {
+    public required init(
+        title: String,
+        icon: String,
+        updateTag: String,
+        value: T?,
+        listOfValues: [T],
+        valueChangeBlock: ValueChangedBlock? = nil
+    ) {
         self.cell = SelectInputCell(listOfValues: listOfValues, valueChangeBlock: valueChangeBlock)
         super.init()
         self.title = title
@@ -135,7 +139,7 @@ class ButtonRow: BaseRow {
     }
 }
 
-class TextViewRow: BaseRow {
+public class TextViewRow: BaseRow {
 
     public override var baseCell: FormInputCell {
         return cell
@@ -148,13 +152,13 @@ class TextViewRow: BaseRow {
     
     var value: String?
 
-    var cell: TextViewInputCell
+    public var cell: TextViewInputCell
 
-    override var description: String {
+    public override var description: String {
         return "<TextViewRow> \(title ?? "")"
     }
 
-    required init(title: String, updateTag: String, value: String?) {
+    public required init(title: String, updateTag: String, value: String?) {
         self.cell = TextViewInputCell()
 
         super.init()
@@ -166,6 +170,6 @@ class TextViewRow: BaseRow {
     }
 }
 
-typealias StringRow = TypedRow<String>
-typealias DoubleRow = TypedRow<Double>
-typealias DateRow = TypedRow<Date>
+public typealias StringRow = TypedRow<String>
+public typealias DoubleRow = TypedRow<Double>
+public typealias DateRow = TypedRow<Date>

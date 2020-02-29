@@ -6,7 +6,7 @@
 //  Copyright © 2019 Mocha. All rights reserved.
 //
 
-import Foundation
+import ObjectForm
 import UIKit
 
 class FruitFormData: NSObject, FormDataSource {
