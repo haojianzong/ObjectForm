@@ -61,6 +61,10 @@ extension FruitFormVC: UITableViewDelegate {
         switch row {
         case let stringSelectRow as SelectRow<String>:
             stringSelectRow.cell.showPicker(in: self)
+            
+        case let textViewRow as TextViewRow:
+            textViewRow.cell.showTextView(in: self)
+
         default:
             break
         }
