@@ -1,17 +1,17 @@
 <p>
-<img src="https://github.com/haojianzong/FormKit/blob/master/banner.png?raw=true"/>
+<img src="https://github.com/haojianzong/ObjectForm/blob/master/banner.png?raw=true"/>
 </p>
 
-FormKit
+ObjectForm
 =======
 
 A simple yet powerful library to build form for your class models.
 
 ## Motivations
 
-I found most form libraries for swift are too complicated to bootstrap a simple project. So I write FormKit to make it dead simple for building forms and binding model classes.
+I found most form libraries for swift are too complicated to bootstrap a simple project. So I write ObjectForm to make it dead simple for building forms and binding model classes.
 
-FormKit doesn't fight with you to write UIKit code. By design, it is simple to understand and extend. If you follow the example project carefully, you would find it easy to fit in your Swift project.
+ObjectForm doesn't fight with you to write UIKit code. By design, it is simple to understand and extend. If you follow the example project carefully, you would find it easy to fit in your Swift project.
 
 This project has no depenency of any other library.
 
@@ -42,7 +42,7 @@ This project has no depenency of any other library.
 
 ## Usage
 
-You can follow the example in `FormKitExample` to learn how to build a simplke form with a class model. 
+You can follow the example in `ObjectFormExample` to learn how to build a simplke form with a class model. 
 
 ### Binding Model to Form
 
