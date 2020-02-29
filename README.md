@@ -120,6 +120,34 @@ extension FruitFormVC: FormCellDelegate {
 }
 ```
 
+### Validate Data
+
+<img src="https://github.com/haojianzong/ObjectForm/blob/master/validation.gif?raw=true"/>
+
+```swift
+        basicRows.append(StringRow(title: "Name",
+                                   icon: "",
+                                   updateTag: "name",
+                                   value: fruit.name ?? "",
+                                   placeholder: nil,
+                                   validation: {
+                                   // Custom rules for row validation
+                                    return !(fruit.name?.isEmpty ?? true)
+
+        }))
+```
+
+```swift
+    @objc private func saveButtonTapped() {
+        guard dataSource.validateData() else {
+            tableView.reloadData()
+            return
+        }
+
+        navigationController?.popViewController(animated: true)
+    }
+```
+
 License
 -------
 	Copyright (C) 2020 Jake Hao
