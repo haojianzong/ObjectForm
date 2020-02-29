@@ -29,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		23D8AB162409D3870093E615 /* FormKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23D8AB162409D3870093E615 /* ObjectFormExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectFormExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D8AB192409D3870093E615 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23D8AB1B2409D3870093E615 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		23D8AB1D2409D3870093E615 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		23D8AB0D2409D3870093E615 = {
 			isa = PBXGroup;
 			children = (
-				23D8AB182409D3870093E615 /* FormKitExample */,
+				23D8AB182409D3870093E615 /* ObjectFormExample */,
 				23D8AB172409D3870093E615 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,12 +74,12 @@
 		23D8AB172409D3870093E615 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23D8AB162409D3870093E615 /* FormKitExample.app */,
+				23D8AB162409D3870093E615 /* ObjectFormExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		23D8AB182409D3870093E615 /* FormKitExample */ = {
+		23D8AB182409D3870093E615 /* ObjectFormExample */ = {
 			isa = PBXGroup;
 			children = (
 				23D8AB522409D8BA0093E615 /* FruitForm */,
@@ -93,7 +93,7 @@
 				23D8AB272409D3890093E615 /* Info.plist */,
 				23D8AB2E2409D6510093E615 /* Fruit.swift */,
 			);
-			path = FormKitExample;
+			path = ObjectFormExample;
 			sourceTree = "<group>";
 		};
 		23D8AB2D2409D38F0093E615 /* Sources */ = {
@@ -133,9 +133,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		23D8AB152409D3870093E615 /* FormKitExample */ = {
+		23D8AB152409D3870093E615 /* ObjectFormExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 23D8AB2A2409D3890093E615 /* Build configuration list for PBXNativeTarget "FormKitExample" */;
+			buildConfigurationList = 23D8AB2A2409D3890093E615 /* Build configuration list for PBXNativeTarget "ObjectFormExample" */;
 			buildPhases = (
 				23D8AB122409D3870093E615 /* Sources */,
 				23D8AB132409D3870093E615 /* Frameworks */,
@@ -145,9 +145,9 @@
 			);
 			dependencies = (
 			);
-			name = FormKitExample;
+			name = ObjectFormExample;
 			productName = FormKitExample;
-			productReference = 23D8AB162409D3870093E615 /* FormKitExample.app */;
+			productReference = 23D8AB162409D3870093E615 /* ObjectFormExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -165,7 +165,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 23D8AB112409D3870093E615 /* Build configuration list for PBXProject "FormKitExample" */;
+			buildConfigurationList = 23D8AB112409D3870093E615 /* Build configuration list for PBXProject "ObjectFormExample" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -178,7 +178,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				23D8AB152409D3870093E615 /* FormKitExample */,
+				23D8AB152409D3870093E615 /* ObjectFormExample */,
 			);
 		};
 /* End PBXProject section */
@@ -362,12 +362,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L74SB6D87X;
-				INFOPLIST_FILE = FormKitExample/Info.plist;
+				INFOPLIST_FILE = ObjectFormExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jakehao.ios.FormKitExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jakehao.ios.ObjectFormExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -380,12 +380,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L74SB6D87X;
-				INFOPLIST_FILE = FormKitExample/Info.plist;
+				INFOPLIST_FILE = ObjectFormExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jakehao.ios.FormKitExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jakehao.ios.ObjectFormExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -395,7 +395,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		23D8AB112409D3870093E615 /* Build configuration list for PBXProject "FormKitExample" */ = {
+		23D8AB112409D3870093E615 /* Build configuration list for PBXProject "ObjectFormExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23D8AB282409D3890093E615 /* Debug */,
@@ -404,7 +404,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		23D8AB2A2409D3890093E615 /* Build configuration list for PBXNativeTarget "FormKitExample" */ = {
+		23D8AB2A2409D3890093E615 /* Build configuration list for PBXNativeTarget "ObjectFormExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23D8AB2B2409D3890093E615 /* Debug */,

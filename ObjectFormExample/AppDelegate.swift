@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  FormKitExample
+//  ObjectFormExample
 //
 //  Created by Jake on 2/29/20.
 //  Copyright © 2020 Jake. All rights reserved.

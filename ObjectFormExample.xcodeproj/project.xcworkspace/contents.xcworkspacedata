@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FormKitExample.xcodeproj">
+      location = "self:/Users/jake/Dropbox/code/FormKitExample/ObjectFormExample.xcodeproj">
    </FileRef>
 </Workspace>
