@@ -161,11 +161,13 @@ basicRows.append(StringRow(title: "Name",
 
 ### Make Your Own Row
 
-Make your own row and cell are easy. You have 2 options:
+Making your own row and cell is easy. You have 2 options:
 
 1. Create concrete type using `TypedRow`
 
-  typealias StringRow = TypedRow<String>
+```swift
+typealias StringRow = TypedRow<String>
+```
 
 2. Subclass `BaseRow`
 
