@@ -30,6 +30,11 @@ class FruitFormVC: UIViewController {
     }
 
     @objc private func saveButtonTapped() {
+        guard dataSource.validateData() else {
+            tableView.reloadData()
+            return
+        }
+
         navigationController?.popViewController(animated: true)
     }
 

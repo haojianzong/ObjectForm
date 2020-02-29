@@ -42,7 +42,10 @@ class FruitFormData: NSObject, FormDataSource {
                                    updateTag: "name",
                                    value: fruit.name ?? "",
                                    placeholder: nil,
-                                   validation: nil))
+                                   validation: {
+                                    return !(fruit.name?.isEmpty ?? true)
+
+        }))
 
         basicRows.append(DoubleRow(title: "Price",
                                    icon: "",
