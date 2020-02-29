@@ -7,6 +7,8 @@ ObjectForm
 
 A simple yet powerful library to build form for your class models.
 
+<img width="200" align="left" src="https://github.com/haojianzong/ObjectForm/blob/master/demo.gif?raw=true" />
+
 ## Motivations
 
 I found most form libraries for swift are too complicated to bootstrap a simple project. So I write ObjectForm to make it dead simple for building forms and binding model classes.
