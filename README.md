@@ -1,5 +1,5 @@
 <p>
-<img src="test"/>
+<img src="https://github.com/haojianzong/FormKit/blob/master/banner.png?raw=true"/>
 </p>
 
 FormKit
@@ -9,41 +9,42 @@ A simple yet powerful library to build form for your class models.
 
 ## Motivations
 
-I found most form libraries for swift are too complicated to bootstrap a simple project. So I write FormKit to make it dead simple to build forms for any model class.
+I found most form libraries for swift are too complicated to bootstrap a simple project. So I write FormKit to make it dead simple for building forms and binding model classes.
 
-By design, FormKit is minimalist, easy to extend and works well with your UIKit projects.
+FormKit doesn't fight with you to write UIKit code. By design, it is simple to understand and extend. If you follow the example project carefully, you would find it easy to fit in your Swift project.
 
 This project has no depenency of any other library.
 
-## Featuers
-- Bind class model variables to form rows
-- Different keyboard for different variable types
+## Features
+- Bind class model to form rows
+- Work well with UITableView
+- Customize keyboards according to model types
 - Type safe
-- Form validation
-- Fully customizable form rows
+- Form validation is supported
+- A list of Built-in UITableViewCell to support multiple types 
 
 ## Available Rows & Cells
 
 ### Rows
 
-- StringRow: Row to support string input, full keyboard
-- DoubleRow: Row to support number input, numeric keyboard
-- DateRow: Row to bind Date value
+- `StringRow`: Row to support string input, full keyboard
+- `DoubleRow`: Row to support number input, numeric keyboard
+- `DateRow`: Row to bind Date value
 
 ### Cells
 
-- TextViewInputCell: text input cell
-- SelectInputCell: support selection, provided by `CollectionPicker`
-- TextViewVC: A view controller with UITextView to input long text
-- ButtonCell: Show a button in the form
-- TypedInputCell: Generic cell to support type binding
-- FormInputCell: The base for all cells
+- `TextViewInputCell`: text input cell
+- `SelectInputCell`: support selection, provided by `CollectionPicker`
+- `TextViewVC`: A view controller with UITextView to input long text
+- `ButtonCell`: Show a button in the form
+- `TypedInputCell`: Generic cell to support type binding
+- `FormInputCell`: The base class for all cells
 
 ## Usage
 
 You can follow the example in `FormKitExample` to learn how to build a simplke form with a class model. 
 
-### Binding a Model to a Form
+### Binding Model to Form
 
 ```swift
 class FruitFormData: NSObject, FormDataSource {
@@ -51,9 +52,10 @@ class FruitFormData: NSObject, FormDataSource {
       typealias BindModel = Fruit
       var basicRows: [BaseRow] = []
 
-      func numberOfSections() -> Int {
+      func numberOfSections() -> Int {...}
+      func numberOfRows(at section: Int) -> Int {...}
+      func row(at indexPath: IndexPath) -> BaseRow {...}
 
-      ...
       self.bindModel = fruit
 
       basicRows.append(StringRow(title: "Name",
@@ -80,10 +82,9 @@ class FruitFormData: NSObject, FormDataSource {
 }
 ```
 
-### Use FormDataSource in a UITableView
+### Showing FormDataSource in a UITableView
 
 ```swift
-
 class FruitFormVC: UIViewController {
   private let dataSource: FruitFormData
 }
@@ -106,13 +107,17 @@ extension FruitFormVC: UITableViewDataSource {
     }
 }
 
+```
+
+### Listening to Cell Value Change
+
+```swift
 extension FruitFormVC: FormCellDelegate {
     func cellDidChangeValue(_ cell: UITableViewCell, value: Any?) {
         let indexPath = tableView.indexPath(for: cell)!
         _ = dataSource.updateItem(at: indexPath, value: value)
     }
 }
-
 ```
 
 License
