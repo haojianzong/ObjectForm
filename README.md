@@ -150,6 +150,47 @@ extension FruitFormVC: FormCellDelegate {
 
 ### Make Your Own Row
 
+Make your own row and cell are easy. You have 2 options:
+
+1. Create concrete type using `TypedRow`
+
+  typealias StringRow = TypedRow<String>
+
+2. Subclass `BaseRow`
+
+```swift
+class TextViewRow: BaseRow {
+
+    public override var baseCell: FormInputCell {
+        return cell
+    }
+
+    public override var baseValue: CustomStringConvertible? {
+        get { return value }
+        set { value = newValue as? String }
+    }
+
+    var value: String?
+
+    var cell: TextViewInputCell
+
+    override var description: String {
+        return "<TextViewRow> \(title ?? "")"
+    }
+
+    required init(title: String, updateTag: String, value: String?) {
+        self.cell = TextViewInputCell()
+
+        super.init()
+
+        self.title = title
+        self.updateTag = updateTag
+        self.value = value
+        self.placeholder = nil
+    }
+}
+```
+
 
 
 License

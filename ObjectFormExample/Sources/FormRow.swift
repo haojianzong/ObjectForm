@@ -135,7 +135,6 @@ class ButtonRow: BaseRow {
     }
 }
 
-/// Model for a row that is a button
 class TextViewRow: BaseRow {
 
     public override var baseCell: FormInputCell {
