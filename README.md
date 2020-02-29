@@ -23,7 +23,7 @@ This project has no dependency of any other library.
 - Customize keyboards according to model types
 - Type safe
 - Form validation is supported
-- A list of Built-in UITableViewCell to support multiple types 
+- A list of Built-in UITableViewCell to support multiple types
 
 ## Available Rows & Cells
 
@@ -203,21 +203,3 @@ class TextViewRow: BaseRow {
     }
 }
 ```
-
-
-
-License
--------
-	Copyright (C) 2020 Jake Hao
-
-	Licensed under the Apache License, Version 2.0 (the "License");
-	you may not use this file except in compliance with the License.
-	You may obtain a copy of the License at
-
-	http://www.apache.org/licenses/LICENSE-2.0
-
-	Unless required by applicable law or agreed to in writing, software
-	distributed under the License is distributed on an "AS IS" BASIS,
-	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	See the License for the specific language governing permissions and
-	limitations under the License.
