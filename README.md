@@ -25,6 +25,24 @@ This project has no dependency of any other library.
 - Fully customizable form validation rules
 - A list of built-in UITableViewCell to support multiple types
 
+## Requirements
+
+- iOS >= 13.0
+
+## Usage
+
+## Copy sources
+
+Copy files under [/Sources](/tree/master/Sources/ObjectForm) into your project.
+
+### Carthage (Coming soon)
+
+### [Swift Package Manager](https://swift.org/package-manager/)
+
+1. Click "Files -> Swift Package Manager -> Add Package Dependency..." in Xcode's menu
+2. Search "https://github.com/haojianzong/ObjectForm".
+3. Select "master" branch or input "Next major version"
+
 ## Available Rows & Cells
 
 ### Rows
@@ -42,19 +60,6 @@ This project has no dependency of any other library.
 - `TypedInputCell`: Generic cell to support type binding
 - `FormInputCell`: The base class for all cells
 
-## Usage
-
-## Copy sources
-
-Copy files under [/Sources](/tree/master/Sources/ObjectForm) into your project.
-
-### Carthage (Coming soon)
-
-### [Swift Package Manager](https://swift.org/package-manager/)
-
-1. Click "Files -> Swift Package Manager -> Add Package Dependency..." in Xcode's menu
-2. Search "https://github.com/haojianzong/ObjectForm".
-3. Select "master" branch or input "Next major version"
 
 ### Tutorials
 
