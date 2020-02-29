@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
+public typealias PickerCompletionBlock = (_ selectedIndex: Int) -> Void
+
 protocol CollectionPicker {
-    typealias PickerCompletionBlock = (_ selectedIndex: Int) -> Void
     init(collection: [Any], completionCallback:@escaping PickerCompletionBlock)
 }
 
