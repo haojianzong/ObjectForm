@@ -31,17 +31,16 @@ This project has no dependency of any other library.
 
 ## Usage
 
-## Copy sources
+1. Copy sources
 
 Copy files under [/Sources](https://github.com/haojianzong/ObjectForm/tree/master/Sources/ObjectForm) into your project.
 
-### Carthage (Coming soon)
+2. Carthage (Coming soon)
 
-### [Swift Package Manager](https://swift.org/package-manager/)
-
-1. Click "Files -> Swift Package Manager -> Add Package Dependency..." in Xcode's menu
-2. Search "https://github.com/haojianzong/ObjectForm".
-3. Select "master" branch or input "Next major version"
+3. [Swift Package Manager](https://swift.org/package-manager/)
+  - Click "Files -> Swift Package Manager -> Add Package Dependency..." in Xcode's menu
+  - Search "https://github.com/haojianzong/ObjectForm".
+  - Select "master" branch or input "Next major version"
 
 ## Available Rows & Cells
 
