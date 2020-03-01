@@ -1,5 +1,5 @@
 <p>
-<img src="https://github.com/haojianzong/ObjectForm/blob/master/banner.png?raw=true"/>
+<img src="https://github.com/haojianzong/ObjectForm/blob/develop/banner.png?raw=true"/>
 </p>
 
 ObjectForm
@@ -7,7 +7,7 @@ ObjectForm
 
 A simple yet powerful library to build form for your class models.
 
-<img width="200" src="https://github.com/haojianzong/ObjectForm/blob/master/demo.gif?raw=true" />
+<img width="200" src="https://github.com/haojianzong/ObjectForm/blob/develop/demo.gif?raw=true" />
 
 ## Motivations
 
@@ -33,7 +33,7 @@ This project has no dependency of any other library.
 ## Usage
 
 1. Copy sources
-  - Copy files under [/Sources](https://github.com/haojianzong/ObjectForm/tree/master/Sources/ObjectForm) into your project.
+  - Copy files under [/Sources](https://github.com/haojianzong/ObjectForm/tree/develop/Sources/ObjectForm) into your project.
 2. Carthage (Coming soon)
 3. [Swift Package Manager](https://swift.org/package-manager/)
   - Click "Files -> Swift Package Manager -> Add Package Dependency..." in Xcode's menu
@@ -60,7 +60,7 @@ This project has no dependency of any other library.
 
 ### Tutorials
 
-You can follow [ObjectFormExample](https://github.com/haojianzong/ObjectForm/tree/master/Examples/ObjectFormExample) in `ObjectFormExample` to learn how to build a simple form with a class model. 
+You can follow [ObjectFormExample](https://github.com/haojianzong/ObjectForm/tree/develop/Examples/ObjectFormExample) in `ObjectFormExample` to learn how to build a simple form with a class model. 
 
 ### Binding Model to Form
 
@@ -142,7 +142,7 @@ extension FruitFormVC: FormCellDelegate {
 
 By providing a validation block when building a row, you can provide any validaiton rules.
 
-<img width="300" src="https://github.com/haojianzong/ObjectForm/blob/master/validation.gif?raw=true" />
+<img width="300" src="https://github.com/haojianzong/ObjectForm/blob/develop/validation.gif?raw=true" />
 
 ```swift
 basicRows.append(StringRow(title: "Name",
