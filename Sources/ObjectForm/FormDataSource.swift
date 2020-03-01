@@ -57,7 +57,7 @@ extension FormDataSource {
             for rowIndex in 0..<numberOfRows(at: section) {
                 let currentRow = row(at: IndexPath(row: rowIndex, section: section))
 
-                if let validation = currentRow.validation, validation() == false {
+                if let validator = currentRow.validator, validator() == false {
                     isValid = false
                     currentRow.validationFailed = true
                 }

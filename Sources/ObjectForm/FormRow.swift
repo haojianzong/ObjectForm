@@ -14,13 +14,13 @@ protocol Taggable: AnyObject {
 }
 
 public class BaseRow : NSObject, Taggable {
-    public typealias validationBlock = (() -> Bool)
+    public typealias Validator = (() -> Bool)
 
     var title: String?
     var icon: String?
     var updateTag: String?
     var placeholder: String?
-    var validation: validationBlock?
+    var validator: Validator?
     var validationFailed: Bool?
 
     public var baseCell: FormInputCell {
@@ -61,7 +61,7 @@ public class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable
         return T.self == t
     }
 
-    public required init(title: String, icon: String, updateTag: String, value: T?, placeholder: String? = nil, validation: validationBlock? = nil) {
+    public required init(title: String, icon: String, updateTag: String, value: T?, placeholder: String? = nil, validator: Validator? = nil) {
         self.cell = TypedInputCell()
         super.init()
         self.title = title
@@ -69,7 +69,7 @@ public class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable
         self.value = value
         self.updateTag = updateTag
         self.placeholder = placeholder
-        self.validation = validation
+        self.validator = validator
     }
 }
 
