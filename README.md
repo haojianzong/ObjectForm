@@ -81,7 +81,7 @@ class FruitFormData: NSObject, FormDataSource {
                                  kvcKey: "name",
                                  value: fruit.name ?? "",
                                  placeholder: nil,
-                                 validation: nil))
+                                 validator: nil))
 
       // Row are type safe
       basicRows.append(DoubleRow(title: "Price",
@@ -89,7 +89,7 @@ class FruitFormData: NSObject, FormDataSource {
                                  kvcKey: "price",
                                  value: fruit.price,
                                  placeholder: "",
-                                 validation: nil))
+                                 validator: nil))
 
       // You can build as many rows as you want
       basicRows.append(TextViewRow(title: "Note",
@@ -150,7 +150,7 @@ basicRows.append(StringRow(title: "Name",
                            kvcKey: "name",
                            value: fruit.name ?? "",
                            placeholder: nil,
-                           validation: {
+                           validator: {
                            // Custom rules for row validation
                             return !(fruit.name?.isEmpty ?? true)
 
