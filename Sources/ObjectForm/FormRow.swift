@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol Taggable: AnyObject {
-    var updateTag: String? { get set }
+    var kvcKey: String? { get set }
 }
 
 public class BaseRow : NSObject, Taggable {
@@ -18,7 +18,10 @@ public class BaseRow : NSObject, Taggable {
 
     var title: String?
     var icon: String?
-    var updateTag: String?
+
+    // Update object properties using the key with key-value-coding
+    var kvcKey: String?
+
     var placeholder: String?
     var validator: Validator?
     var validationFailed: Bool?
@@ -61,13 +64,13 @@ public class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable
         return T.self == t
     }
 
-    public required init(title: String, icon: String, updateTag: String, value: T?, placeholder: String? = nil, validator: Validator? = nil) {
+    public required init(title: String, icon: String, kvcKey: String, value: T?, placeholder: String? = nil, validator: Validator? = nil) {
         self.cell = TypedInputCell()
         super.init()
         self.title = title
         self.icon = icon
         self.value = value
-        self.updateTag = updateTag
+        self.kvcKey = kvcKey
         self.placeholder = placeholder
         self.validator = validator
     }
@@ -105,7 +108,7 @@ public class SelectRow<T>: BaseRow where T: SelectRowConvertible {
     public required init(
         title: String,
         icon: String,
-        updateTag: String,
+        kvcKey: String,
         value: T?,
         listOfValues: [T],
         valueChangedHandler: ValueChangedHandler? = nil
@@ -115,7 +118,7 @@ public class SelectRow<T>: BaseRow where T: SelectRowConvertible {
         self.title = title
         self.icon = icon
         self.value = value
-        self.updateTag = updateTag
+        self.kvcKey = kvcKey
         self.placeholder = placeholder
         self.valueChangedHandler = valueChangedHandler
     }
@@ -149,7 +152,7 @@ class ButtonRow: BaseRow {
         super.init()
         self.title = title
         self.icon = icon
-        self.updateTag = nil
+        self.kvcKey = nil
         self.placeholder = nil
     }
 }
@@ -178,13 +181,13 @@ public class TextViewRow: BaseRow {
         return String.self == t
     }
 
-    public required init(title: String, updateTag: String, value: String?) {
+    public required init(title: String, kvcKey: String, value: String?) {
         self.cell = TextViewInputCell()
 
         super.init()
 
         self.title = title
-        self.updateTag = updateTag
+        self.kvcKey = kvcKey
         self.value = value
         self.placeholder = nil
     }

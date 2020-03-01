@@ -31,7 +31,7 @@ extension FormDataSource {
     /// TODO: refactor updateItem and save as protocol method with default implementations
     public func updateItem(at indexPath: IndexPath, value: Any?) -> Bool {
         let currentRow = row(at: indexPath)
-        guard let keyPath = currentRow.updateTag else {
+        guard let keyPath = currentRow.kvcKey else {
             assertionFailure("Row keyPath should not be empty")
             return false
         }
