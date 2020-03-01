@@ -171,6 +171,14 @@ basicRows.append(StringRow(title: "Name",
 }
 ```
 
+### Row Type Safety
+
+Since a form row use key-value-coding to update its bind model, it is important to keep the row value type the same as the object's variable type. ObjectForm enforces type safe. Every row must implement the following method:
+
+  override func isValueMatchRowType(value: Any) -> Bool
+
+This is already implemented by built-in generic rows, for example, `TypedRow<T>` and `SelectRow<T>`.
+
 ### Make Your Own Row
 
 Making your own row and cell is easy. You have 2 options:
@@ -198,6 +206,11 @@ class TextViewRow: BaseRow {
     var value: String?
 
     var cell: TextViewInputCell
+
+    override func isValueMatchRowType(value: Any) -> Bool {
+        let t = type(of: value)
+        return String.self == t
+    }
 
     override var description: String {
         return "<TextViewRow> \(title ?? "")"
