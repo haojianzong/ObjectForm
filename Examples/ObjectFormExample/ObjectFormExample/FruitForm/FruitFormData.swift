@@ -39,7 +39,7 @@ class FruitFormData: NSObject, FormDataSource {
 
         basicRows.append(StringRow(title: "Name",
                                    icon: "",
-                                   updateTag: "name",
+                                   kvcKey: "name",
                                    value: fruit.name ?? "",
                                    placeholder: nil,
                                    validator: {
@@ -49,23 +49,23 @@ class FruitFormData: NSObject, FormDataSource {
 
         basicRows.append(DoubleRow(title: "Price",
                                    icon: "",
-                                   updateTag: "price",
+                                   kvcKey: "price",
                                    value: fruit.price,
                                    placeholder: ""))
 
         basicRows.append(DoubleRow(title: "Weight",
                                    icon: "",
-                                   updateTag: "weight",
+                                   kvcKey: "weight",
                                    value: fruit.weight,
                                    placeholder: ""))
 
         basicRows.append(TextViewRow(title: "Note",
-                                     updateTag: "note",
+                                     kvcKey: "note",
                                      value: fruit.note ?? "-"))
 
         basicRows.append(SelectRow(title: "Retailer",
                                    icon: "",
-                                   updateTag: "retailer",
+                                   kvcKey: "retailer",
                                    value: fruit.retailer,
                                      listOfValues: ["Walmart", "McDonald", "Carrefour"]))
     }

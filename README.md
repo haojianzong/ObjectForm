@@ -18,6 +18,7 @@ ObjectForm doesn't fight with you to write UIKit code. By design, it is simple t
 This project has no dependency of any other library.
 
 ## Features
+
 - Bind class model to form rows
 - Automatic keyboards types according to model types
 - Form rows are type safe
@@ -77,7 +78,7 @@ class FruitFormData: NSObject, FormDataSource {
 
       basicRows.append(StringRow(title: "Name",
                                  icon: "",
-                                 updateTag: "name",
+                                 kvcKey: "name",
                                  value: fruit.name ?? "",
                                  placeholder: nil,
                                  validation: nil))
@@ -85,14 +86,14 @@ class FruitFormData: NSObject, FormDataSource {
       // Row are type safe
       basicRows.append(DoubleRow(title: "Price",
                                  icon: "",
-                                 updateTag: "price",
+                                 kvcKey: "price",
                                  value: fruit.price,
                                  placeholder: "",
                                  validation: nil))
 
       // You can build as many rows as you want
       basicRows.append(TextViewRow(title: "Note",
-                                   updateTag: "note",
+                                   kvcKey: "note",
                                    value: fruit.note ?? "-"))
 
   }
@@ -146,7 +147,7 @@ By providing a validation block when building a row, you can provide any validai
 ```swift
 basicRows.append(StringRow(title: "Name",
                            icon: "",
-                           updateTag: "name",
+                           kvcKey: "name",
                            value: fruit.name ?? "",
                            placeholder: nil,
                            validation: {
@@ -212,13 +213,13 @@ class TextViewRow: BaseRow {
         return "<TextViewRow> \(title ?? "")"
     }
 
-    required init(title: String, updateTag: String, value: String?) {
+    required init(title: String, kvcKey: String, value: String?) {
         self.cell = TextViewInputCell()
 
         super.init()
 
         self.title = title
-        self.updateTag = updateTag
+        self.kvcKey = kvcKey
         self.value = value
         self.placeholder = nil
     }
