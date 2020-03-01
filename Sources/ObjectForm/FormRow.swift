@@ -31,6 +31,11 @@ public class BaseRow : NSObject, Taggable {
         set { fatalError("Subclass should override") }
         get { fatalError("Subclass should override") }
     }
+
+    // Used to check type when updating object's value with key `-value-coding
+    func isValueMatchRowType(value: Any) -> Bool {
+        fatalError("Subclass must override")
+    }
 }
 
 /// Model for inputing a value
@@ -49,6 +54,11 @@ public class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable
 
     public override var description: String {
         return value?.description ?? ""
+    }
+
+    override func isValueMatchRowType(value: Any) -> Bool {
+        let t = type(of: value)
+        return T.self == t
     }
 
     public required init(title: String, icon: String, updateTag: String, value: T?, placeholder: String? = nil, validation: validationBlock? = nil) {
@@ -85,6 +95,11 @@ public class SelectRow<T>: BaseRow where T: SelectRowConvertible {
     
     public override var description: String {
         return value?.description ?? ""
+    }
+
+    override func isValueMatchRowType(value: Any) -> Bool {
+        let t = type(of: value)
+        return T.self == t
     }
 
     public required init(
@@ -156,6 +171,11 @@ public class TextViewRow: BaseRow {
 
     public override var description: String {
         return "<TextViewRow> \(title ?? "")"
+    }
+
+    override func isValueMatchRowType(value: Any) -> Bool {
+        let t = type(of: value)
+        return String.self == t
     }
 
     public required init(title: String, updateTag: String, value: String?) {

@@ -44,15 +44,10 @@ extension FormDataSource {
     }
 
     private func checkTypeMatch(row: BaseRow, value: Any?) -> Bool {
-        guard let value = value else { return true }
-        switch row {
-        case is StringRow: return (value is String)
-        case is DoubleRow: return (value is Double)
-        case is DateRow: return (value is Date)
-        case is SelectRow<String>: return (value is String)
-        case is TextViewRow: return (value is String)
-        default: return false
+        guard let value = value else {
+            return false
         }
+        return row.isValueMatchRowType(value: value)
     }
 
     public func validateData() -> Bool {
