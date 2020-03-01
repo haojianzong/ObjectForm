@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-public typealias PickerCompletionBlock = (_ selectedIndex: Int) -> Void
+public typealias PickerCompletionHandler = (_ selectedIndex: Int) -> Void
 
 protocol CollectionPicker {
-    init(collection: [Any], completionCallback:@escaping PickerCompletionBlock)
+    init(collection: [Any], completionHandler: @escaping PickerCompletionHandler)
 }
 
 public class TableCollectionPicker: UIViewController, CollectionPicker {
@@ -32,11 +32,11 @@ public class TableCollectionPicker: UIViewController, CollectionPicker {
         return view
     }()
 
-    private var completionCallback: PickerCompletionBlock?
+    private var completionHandler: PickerCompletionHandler?
     private var collection: [Any]
 
-    public required init(collection: [Any], completionCallback: @escaping PickerCompletionBlock) {
-        self.completionCallback = completionCallback
+    public required init(collection: [Any], completionHandler: @escaping PickerCompletionHandler) {
+        self.completionHandler = completionHandler
         self.collection = collection
         super.init(nibName: nil, bundle: nil)
         title = "设置"
@@ -75,7 +75,7 @@ extension TableCollectionPicker: UITableViewDataSource, UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        completionCallback?(indexPath.row)
+        completionHandler?(indexPath.row)
         navigationController?.popViewController(animated: true)
     }
 }
