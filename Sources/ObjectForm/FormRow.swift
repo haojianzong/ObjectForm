@@ -78,7 +78,7 @@ public typealias SelectRowConvertible = CustomStringConvertible & SelectCellOutp
 /// Model for a row that selects a value from a list of values
 public class SelectRow<T>: BaseRow where T: SelectRowConvertible {
 
-    public typealias ValueChangedBlock = ((T?) -> Void)
+    public typealias ValueChangedHandler = ((T?) -> Void)
 
     public override var baseValue: CustomStringConvertible? {
         get { return value }
@@ -91,7 +91,7 @@ public class SelectRow<T>: BaseRow where T: SelectRowConvertible {
     var value: T?
     public var cell: SelectInputCell<T>
 
-    private var valueChangeBlock: ValueChangedBlock?
+    private var valueChangedHandler: ValueChangedHandler?
     
     public override var description: String {
         return value?.description ?? ""
@@ -108,16 +108,16 @@ public class SelectRow<T>: BaseRow where T: SelectRowConvertible {
         updateTag: String,
         value: T?,
         listOfValues: [T],
-        valueChangeBlock: ValueChangedBlock? = nil
+        valueChangedHandler: ValueChangedHandler? = nil
     ) {
-        self.cell = SelectInputCell(listOfValues: listOfValues, valueChangeBlock: valueChangeBlock)
+        self.cell = SelectInputCell(listOfValues: listOfValues, valueChangedHandler: valueChangedHandler)
         super.init()
         self.title = title
         self.icon = icon
         self.value = value
         self.updateTag = updateTag
         self.placeholder = placeholder
-        self.valueChangeBlock = valueChangeBlock
+        self.valueChangedHandler = valueChangedHandler
     }
 }
 

@@ -22,15 +22,15 @@ extension String: SelectCellOutputible {
 
 public class SelectInputCell<T: SelectRowConvertible>: FormInputCell {
     
-    typealias ValueChangedBlock = ((T) -> Void)
+    typealias ValueChangedHandler = ((T) -> Void)
 
     private var collectionPicker: TableCollectionPicker?
 
     private var listOfValues: [T]?
 
-    private var valueChangeBlock: SelectRow<T>.ValueChangedBlock?
+    private var valueChangedHandler: SelectRow<T>.ValueChangedHandler?
 
-    convenience init(listOfValues: [T], valueChangeBlock: SelectRow<T>.ValueChangedBlock?) {
+    convenience init(listOfValues: [T], valueChangedHandler: SelectRow<T>.ValueChangedHandler?) {
         self.init(style: .default, reuseIdentifier: "InputCellIdentifier")
         self.listOfValues = listOfValues
 
@@ -39,7 +39,7 @@ public class SelectInputCell<T: SelectRowConvertible>: FormInputCell {
             self.textField.text = String(describing: listOfValues[pickedIndex])
             self.delegate?.cellDidChangeValue(self, value: listOfValues[pickedIndex].outputValue)
 
-            valueChangeBlock?(listOfValues[pickedIndex])
+            valueChangedHandler?(listOfValues[pickedIndex])
         })
 
         textField.isUserInteractionEnabled = false
