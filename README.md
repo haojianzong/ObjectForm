@@ -19,11 +19,11 @@ This project has no dependency of any other library.
 
 ## Features
 - Bind class model to form rows
-- Work well with UITableView
-- Customize keyboards according to model types
+- Automatic keyboards types according to model types
 - Form rows are type safe
 - Fully customizable form validation rules
 - A list of built-in UITableViewCell to support multiple types
+- Work amazingly well with your UITableView code
 
 ## Requirements
 
