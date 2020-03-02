@@ -14,7 +14,7 @@ public protocol FormCellDelegate: AnyObject {
     func cellDidChangeValue(_ cell: UITableViewCell, value: Any?)
 }
 
-// Define common styles & validation
+// A base class for all input cell, simply defining some sytles
 public class FormInputCell: UITableViewCell {
 
     public static let identifier = "FormInputCell"

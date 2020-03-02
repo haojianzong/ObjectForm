@@ -15,6 +15,7 @@ protocol CollectionPicker {
     init(collection: [Any], completionHandler: @escaping PickerCompletionHandler)
 }
 
+// A selection picker implemented with UITableView
 public class TableCollectionPicker: UIViewController, CollectionPicker {
 
     public var selectedRow: Int? {
@@ -39,7 +40,6 @@ public class TableCollectionPicker: UIViewController, CollectionPicker {
         self.completionHandler = completionHandler
         self.collection = collection
         super.init(nibName: nil, bundle: nil)
-        title = "设置"
 
         tableView.delegate = self
         tableView.dataSource = self

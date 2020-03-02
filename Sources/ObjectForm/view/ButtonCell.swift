@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// A simple button
 class ButtonCell: FormInputCell {
 
     override func setup(_ row: BaseRow) {

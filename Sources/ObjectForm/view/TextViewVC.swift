@@ -13,11 +13,10 @@ protocol TextViewVCDelegate: AnyObject {
     func textViewVCDidSave(_ textViewVC: TextViewVC, with value: String)
 }
 
+// A simple text view in a viewController that provides full screen text editing
 class TextViewVC: UIViewController {
 
     let textView = UITextView()
-
-//    private let placeholderText = "在此写下账户备注"
 
     weak var delegate: TextViewVCDelegate?
 
@@ -29,7 +28,6 @@ class TextViewVC: UIViewController {
         view.backgroundColor = .systemBackground
 
         textView.font = .systemFont(ofSize: 18.0)
-//        textView.delegate = self
 
         view.addSubview(textView)
         textView.pinMargins(to: view, edges: [.leading, .trailing, .top])
@@ -50,13 +48,3 @@ class TextViewVC: UIViewController {
     }
 
 }
-//
-//extension TextViewVC: UITextViewDelegate {
-//
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        if textView.text == placeholderText {
-//            textView.text = ""
-//        }
-//    }
-//
-//}

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-/// bind/get model for the form
+/// Bind model for the form
 public protocol Bindable {
     associatedtype BindModel: NSObject
     var bindModel: BindModel { set get }
@@ -28,7 +28,6 @@ public protocol FormDataSource: Bindable {
 
 extension FormDataSource {
 
-    /// TODO: refactor updateItem and save as protocol method with default implementations
     public func updateItem(at indexPath: IndexPath, value: Any?) -> Bool {
         let currentRow = row(at: indexPath)
         guard let keyPath = currentRow.kvcKey else {
@@ -67,4 +66,3 @@ extension FormDataSource {
         return isValid
     }
 }
-
