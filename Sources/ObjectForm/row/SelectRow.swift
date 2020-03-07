@@ -32,9 +32,9 @@ public class SelectRow<T>: BaseRow where T: SelectRowConvertible {
         return value?.description ?? ""
     }
 
+    // Select row can define its outputValue
     override func isValueMatchRowType(value: Any) -> Bool {
-        let t = type(of: value)
-        return T.self == t
+        return true
     }
 
     public required init(
