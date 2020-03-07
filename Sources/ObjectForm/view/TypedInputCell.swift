@@ -28,7 +28,7 @@ public class TypedInputCell<T>: FormInputCell {
         case is String.Type:
             return text
         case is Double.Type:
-            return Double(text) ?? 0 as NSNumber
+            return Double(text) ?? Double(0)
         default:
             return nil
         }
