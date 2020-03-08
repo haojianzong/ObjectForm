@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Bind model for the form
 public protocol Bindable {
