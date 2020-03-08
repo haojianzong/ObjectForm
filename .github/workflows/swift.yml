@@ -7,14 +7,6 @@ on:
     branches: [ develop ]
 
 jobs:
-  spm:
-    name: Test SPM Integration
-    runs-on: macOS-latest    
-    needs: [macOS]
-    steps:
-      - uses: actions/checkout@v1
-      - name: SPM Build
-        run: swift build
   iOS:
     name: Test iOS 
     runs-on: macOS-latest
