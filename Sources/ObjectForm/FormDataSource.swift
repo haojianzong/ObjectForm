@@ -6,6 +6,8 @@
 //  Copyright © 2019 Mocha. All rights reserved.
 //
 
+import Foundation
+
 /// Bind model for the form
 public protocol Bindable {
     associatedtype BindModel: NSObject
