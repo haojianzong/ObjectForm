@@ -14,5 +14,7 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_11.3.1.app/Contents/Developer
     steps:
       - uses: actions/checkout@v1
-      - name: SPM Test
-        run: swift test -c debug
+      - name: Generate xcodeproj
+        run: swift package generate-xcodeproj
+      - name: Run tests
+        run: xcodebuild build test -destination ‘name=iPhone 11’ -scheme ‘<PackageName>-Package’
