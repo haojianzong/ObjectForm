@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "ObjectForm",
-    platforms: [.iOS(.v13)],
+    platforms: [.iOS(.v11)],
     products: [.library(name: "ObjectForm", targets: ["ObjectForm"])],
     targets: [.target(name: "ObjectForm")]
 )

@@ -25,7 +25,11 @@ class TextViewVC: UIViewController {
 
         view.layoutMargins = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
 
-        view.backgroundColor = .systemBackground
+        if #available(iOS 13, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            view.backgroundColor = .white
+        }
 
         textView.font = .systemFont(ofSize: 18.0)
 

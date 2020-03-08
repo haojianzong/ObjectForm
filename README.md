@@ -28,7 +28,7 @@ This project has no dependency of any other library.
 
 ## Requirements
 
-- iOS >= 13.0
+- iOS >= 11.0
 
 ## Usage
 

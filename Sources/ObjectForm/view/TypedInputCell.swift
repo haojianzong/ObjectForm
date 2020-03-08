@@ -57,9 +57,17 @@ public class TypedInputCell<T>: FormInputCell {
         textField.placeholder = row.placeholder
 
         if row.validationFailed == true {
-            titleLabel.textColor = .systemRed
+            if #available(iOS 13, *) {
+                titleLabel.textColor = .systemRed
+            } else {
+                titleLabel.textColor = .red
+            }
         } else {
-            titleLabel.textColor = .label
+            if #available(iOS 13, *) {
+                titleLabel.textColor = .label
+            } else {
+                titleLabel.textColor = .black
+            }
         }
     }
 
