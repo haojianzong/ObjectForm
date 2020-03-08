@@ -17,4 +17,4 @@ jobs:
       - name: Generate xcodeproj
         run: swift package generate-xcodeproj
       - name: Run tests
-        run: xcodebuild build test -destination ‘name=iPhone 11’ -scheme ‘<PackageName>-Package’
+        run: xcodebuild build test -destination ‘name=iPhone 11’ -scheme ‘ObjectForm-Package’
