@@ -30,9 +30,10 @@ public class FormInputCell: UITableViewCell {
     }()
 
     public let textField: UITextField = {
-        let textField = UITextField()
+        let textField = InsetTextField()
         textField.textAlignment = .right
         textField.font = .systemFont(ofSize: 17.0)
+        textField.inset = CGPoint(x: 0, y: 10)
         return textField
     }()
 
@@ -43,7 +44,8 @@ public class FormInputCell: UITableViewCell {
         contentView.addSubview(hStack)
         hStack.setCustomSpacing(16.0, after: titleLabel)
         hStack.setCustomSpacing(8.0, after: textField)
-        hStack.pinMargins(to: contentView)
+        hStack.pinEdges(to: contentView, edges: [.top, .bottom])
+        hStack.pinMargins(to: contentView, edges: [.leading, .trailing])
     }
 
     required init(coder aDecoder: NSCoder) {
