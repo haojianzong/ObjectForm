@@ -2,7 +2,7 @@
 <img src="https://github.com/haojianzong/ObjectForm/blob/develop/banner.png?raw=true"/>
 </p>
 
-![ObjectForm](https://github.com/haojianzong/ObjectForm/workflows/ObjectForm/badge.svg)
+[![ObjectForm](https://github.com/haojianzong/ObjectForm/workflows/ObjectForm/badge.svg)](https://github.com/haojianzong/ObjectForm/actions?query=workflow%3AObjectForm)
 
 ObjectForm
 =======
