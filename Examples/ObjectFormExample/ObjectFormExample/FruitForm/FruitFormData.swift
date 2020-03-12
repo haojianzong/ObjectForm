@@ -67,7 +67,7 @@ class FruitFormData: NSObject, FormDataSource {
                                    icon: "",
                                    kvcKey: "retailer",
                                    value: fruit.retailer,
-                                     listOfValues: ["Walmart", "McDonald", "Carrefour"]))
+                                   listOfValues: ["Walmart", "McDonald", "Carrefour"]))
     }
 
     override init() { fatalError("not implemented") }

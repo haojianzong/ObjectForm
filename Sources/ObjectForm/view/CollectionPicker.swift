@@ -29,7 +29,14 @@ public class TableCollectionPicker: UIViewController, CollectionPicker {
     }
 
     private var tableView: UITableView = {
-        let view = UITableView(frame: .zero)
+        let view: UITableView
+        if #available(iOS 13, *) {
+            view = UITableView(frame: .zero, style: .insetGrouped)
+        }
+        else
+        {
+            view = UITableView(frame: .zero)
+        }
         return view
     }()
 
@@ -44,6 +51,8 @@ public class TableCollectionPicker: UIViewController, CollectionPicker {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIdentifier)
+
+        tableView.allowsMultipleSelection = false
 
         view.addSubview(tableView)
         tableView.pinEdges(to: view)
@@ -67,14 +76,19 @@ extension TableCollectionPicker: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifier)!
         cell.textLabel?.text = String(describing: collection[indexPath.row])
+
         if let selectedRow = selectedRow,
             selectedRow == indexPath.row {
             cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
         }
+
         return cell
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRow = indexPath.row
         completionHandler?(indexPath.row)
         navigationController?.popViewController(animated: true)
     }
