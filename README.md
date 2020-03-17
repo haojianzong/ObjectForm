@@ -1,5 +1,5 @@
 <p>
-<img src="https://github.com/haojianzong/ObjectForm/blob/develop/banner.png?raw=true"/>
+![](https://github.com/haojianzong/ObjectForm/blob/develop/banner.png?raw=true")
 </p>
 
 [![ObjectForm](https://github.com/haojianzong/ObjectForm/workflows/ObjectForm/badge.svg)](https://github.com/haojianzong/ObjectForm/actions?query=workflow%3AObjectForm)
@@ -24,7 +24,7 @@ Application
 
 In my application, I use ObjectForm to make forms for multiple classes as well as different variants for the same class, which saves me from writing duplicate code.
 
-<img width="200" src="https://github.com/haojianzong/ObjectForm/blob/develop/application.jpg?raw=true" />
+![](https://github.com/haojianzong/ObjectForm/blob/develop/application.jpg?raw=true")
 
 ## Features
 
