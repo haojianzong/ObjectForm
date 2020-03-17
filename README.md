@@ -19,6 +19,13 @@ ObjectForm doesn't fight with you to write UIKit code. By design, it is simple t
 
 This project has no dependency of any other library.
 
+Application
+=======
+
+In my application, I use ObjectForm to make forms for multiple classes as well as different variants for the same class, which saves me from writing duplicate code.
+
+<img width="200" src="https://github.com/haojianzong/ObjectForm/blob/develop/application.jpg?raw=true" />
+
 ## Features
 
 - Bind class model to form rows
