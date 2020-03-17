@@ -1,6 +1,4 @@
-<p>
-![](https://github.com/haojianzong/ObjectForm/blob/develop/banner.png?raw=true")
-</p>
+![](https://github.com/haojianzong/ObjectForm/blob/develop/banner.png?raw=true)
 
 [![ObjectForm](https://github.com/haojianzong/ObjectForm/workflows/ObjectForm/badge.svg)](https://github.com/haojianzong/ObjectForm/actions?query=workflow%3AObjectForm)
 
