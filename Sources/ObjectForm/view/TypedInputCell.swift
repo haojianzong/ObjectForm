@@ -11,10 +11,24 @@ import UIKit
 
 public class TypedInputCell<T>: FormInputCell {
 
+    private var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        return dateFormatter
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        textField.addTarget(self, action: #selector(textFieldValueChange(_ :)), for: .editingChanged)
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBtnTapped))
+        let flexibleButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([flexibleButton, doneButton], animated: false)
+
+        textField.inputAccessoryView = toolbar
+
         updateKeyboardType()
     }
 
@@ -29,6 +43,8 @@ public class TypedInputCell<T>: FormInputCell {
             return text
         case is Double.Type:
             return Double(text) ?? Double(0)
+        case is Date.Type:
+            return dateFormatter.date(from: text)
         default:
             return nil
         }
@@ -38,8 +54,17 @@ public class TypedInputCell<T>: FormInputCell {
         switch T.self {
         case is String.Type:
             textField.keyboardType = .default
+            textField.addTarget(self, action: #selector(textFieldValueChange(_ :)), for: .editingChanged)
+
         case is Double.Type:
             textField.keyboardType = .decimalPad
+            textField.addTarget(self, action: #selector(textFieldValueChange(_ :)), for: .editingChanged)
+
+        case is Date.Type:
+            let datePicker = UIDatePicker()
+
+            datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
+            textField.inputView = datePicker
         default:
             textField.keyboardType = .default
         }
@@ -51,9 +76,12 @@ public class TypedInputCell<T>: FormInputCell {
         if let number = row.baseValue as? Double, number < Double.ulpOfOne {
             // clear the text so that user can start input from integer value
             textField.text = ""
+        } else if let date = row.baseValue as? Date {
+            textField.text = dateFormatter.string(from: date)
         } else {
             textField.text = row.description
         }
+
         textField.placeholder = row.placeholder
 
         if row.validationFailed == true {
@@ -69,6 +97,15 @@ public class TypedInputCell<T>: FormInputCell {
                 titleLabel.textColor = .black
             }
         }
+    }
+
+    @objc private func doneBtnTapped() {
+        _ = resignFirstResponder()
+    }
+
+    @objc private func datePickerValueChanged(_ sender: UIDatePicker) {
+        textField.text = dateFormatter.string(from: sender.date)
+        self.delegate?.cellDidChangeValue(self, value: outputValue)
     }
 
     @objc private func textFieldValueChange(_ sender: UITextField) {

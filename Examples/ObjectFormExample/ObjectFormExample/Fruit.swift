@@ -14,8 +14,9 @@ import Foundation
     @objc dynamic var weight: Double = 0
     @objc dynamic var retailer: String?
     @objc dynamic var note: String?
+    @objc dynamic var date: Date?
 
-    convenience init(name: String?, price: Double, weight: Double, retailer: String?, note: String?) {
+    convenience init(name: String?, price: Double, weight: Double, retailer: String?, note: String?, date: Date? = Date()) {
         self.init()
         self.name = name
         self.price = price

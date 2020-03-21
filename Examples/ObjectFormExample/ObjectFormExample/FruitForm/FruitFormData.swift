@@ -63,6 +63,12 @@ class FruitFormData: NSObject, FormDataSource {
                                      kvcKey: "note",
                                      value: fruit.note ?? "-"))
 
+        basicRows.append(DateRow(title: "Purchase Date",
+                                 icon: "",
+                                 kvcKey: "date",
+                                 value: fruit.date ?? Date(),
+                                 placeholder: ""))
+
         basicRows.append(SelectRow(title: "Retailer",
                                    icon: "",
                                    kvcKey: "retailer",
