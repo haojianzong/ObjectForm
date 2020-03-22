@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class TypedInputCell<T>: FormInputCell {
+public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
 
     private var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -28,8 +28,7 @@ public class TypedInputCell<T>: FormInputCell {
         toolbar.setItems([flexibleButton, doneButton], animated: false)
 
         textField.inputAccessoryView = toolbar
-
-        updateKeyboardType()
+        textField.delegate = self
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -50,7 +49,7 @@ public class TypedInputCell<T>: FormInputCell {
         }
     }
 
-    func updateKeyboardType() {
+    func updateKeyboardType(row: BaseRow) {
         switch T.self {
         case is String.Type:
             textField.keyboardType = .default
@@ -61,10 +60,15 @@ public class TypedInputCell<T>: FormInputCell {
             textField.addTarget(self, action: #selector(textFieldValueChange(_ :)), for: .editingChanged)
 
         case is Date.Type:
-            let datePicker = UIDatePicker()
 
+            let datePicker = UIDatePicker()
             datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
             textField.inputView = datePicker
+
+            if let date = row.baseValue as? Date {
+                datePicker.date = date
+            }
+
         default:
             textField.keyboardType = .default
         }
@@ -81,6 +85,8 @@ public class TypedInputCell<T>: FormInputCell {
         } else {
             textField.text = row.description
         }
+
+        updateKeyboardType(row: row)
 
         textField.placeholder = row.placeholder
 
@@ -121,4 +127,14 @@ public class TypedInputCell<T>: FormInputCell {
         super.resignFirstResponder()
         return textField.resignFirstResponder()
     }
+
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let inputView = textField.inputView else {
+            return true
+        }
+        let isDatePicker = inputView.isKind(of: UIDatePicker.self)
+
+        return !isDatePicker
+    }
+
 }
