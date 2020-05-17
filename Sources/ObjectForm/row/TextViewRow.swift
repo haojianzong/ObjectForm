@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class TextViewRow: BaseRow {
+open class TextViewRow: BaseRow {
 
     public override var baseCell: FormInputCell {
         return cell

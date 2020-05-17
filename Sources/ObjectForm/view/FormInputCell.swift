@@ -15,7 +15,7 @@ public protocol FormCellDelegate: AnyObject {
 }
 
 // A base class for all input cell, simply defining some sytles
-public class FormInputCell: UITableViewCell {
+open class FormInputCell: UITableViewCell {
 
     public static let identifier = "FormInputCell"
 

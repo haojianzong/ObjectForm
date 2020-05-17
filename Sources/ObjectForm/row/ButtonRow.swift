@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Jake on 3/2/20.
 //
@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 /// Model for a row that is a button
-class ButtonRow: BaseRow {
+open ButtonRow: BaseRow {
 
     public override var baseValue: CustomStringConvertible? {
         get { return nil }

@@ -14,7 +14,7 @@ public typealias DoubleRow = TypedRow<Double>
 public typealias DateRow = TypedRow<Date>
 
 // A generic model for inputing a value
-public class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable {
+open class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable {
     public override var baseValue: CustomStringConvertible? {
         get { return value }
         set { value = newValue as? T }

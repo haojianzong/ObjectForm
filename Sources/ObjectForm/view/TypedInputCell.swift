@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
+open class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
 
     private var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()

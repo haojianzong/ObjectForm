@@ -20,8 +20,8 @@ extension String: SelectCellOutputible {
     }
 }
 
-public class SelectInputCell<T: SelectRowConvertible>: FormInputCell {
-    
+open class SelectInputCell<T: SelectRowConvertible>: FormInputCell {
+
     typealias ValueChangedHandler = ((T) -> Void)
 
     private var collectionPicker: TableCollectionPicker?

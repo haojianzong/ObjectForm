@@ -11,7 +11,7 @@ import UIKit
 public typealias SelectRowConvertible = CustomStringConvertible & SelectCellOutputible & Equatable
 
 /// Model for a row that selects a value from a list of values
-public class SelectRow<T>: BaseRow where T: SelectRowConvertible {
+open class SelectRow<T>: BaseRow where T: SelectRowConvertible {
 
     public typealias ValueChangedHandler = ((T?) -> Void)
 

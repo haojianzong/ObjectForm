@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class TextViewInputCell: FormInputCell {
+open class TextViewInputCell: FormInputCell {
 
     private let textViewVC = TextViewVC()
 

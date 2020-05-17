@@ -13,7 +13,7 @@ protocol Taggable: AnyObject {
     var kvcKey: String? { get set }
 }
 
-public class BaseRow : NSObject, Taggable {
+open class BaseRow : NSObject, Taggable {
     public typealias Validator = (() -> Bool)
 
     var title: String?
