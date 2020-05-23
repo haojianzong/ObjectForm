@@ -13,7 +13,7 @@ protocol Taggable: AnyObject {
     var kvcKey: String? { get set }
 }
 
-public class BaseRow : NSObject, Taggable {
+open class BaseRow : NSObject, Taggable {
     public typealias Validator = (() -> Bool)
 
     var title: String?
@@ -26,17 +26,17 @@ public class BaseRow : NSObject, Taggable {
     var validator: Validator?
     var validationFailed: Bool?
 
-    public var baseCell: FormInputCell {
+    open var baseCell: FormInputCell {
         fatalError("Subclass should override")
     }
 
-    public var baseValue: CustomStringConvertible? {
+    open var baseValue: CustomStringConvertible? {
         set { fatalError("Subclass should override") }
         get { fatalError("Subclass should override") }
     }
 
     // Used to check type when updating object's value with key `-value-coding
-    func isValueMatchRowType(value: Any) -> Bool {
+    open func isValueMatchRowType(value: Any) -> Bool {
         fatalError("Subclass must override")
     }
 }

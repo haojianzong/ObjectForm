@@ -15,7 +15,7 @@ public protocol FormCellDelegate: AnyObject {
 }
 
 // A base class for all input cell, simply defining some sytles
-public class FormInputCell: UITableViewCell {
+open class FormInputCell: UITableViewCell {
 
     public static let identifier = "FormInputCell"
 
@@ -48,11 +48,11 @@ public class FormInputCell: UITableViewCell {
         hStack.pinMargins(to: contentView, edges: [.leading, .trailing])
     }
 
-    required init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func setup(_ row: BaseRow) {
+    open func setup(_ row: BaseRow) {
         fatalError("Subclass must override")
     }
 }

@@ -26,7 +26,7 @@ public class TextViewRow: BaseRow {
         return "<TextViewRow> \(title ?? "")"
     }
 
-    override func isValueMatchRowType(value: Any) -> Bool {
+    open override func isValueMatchRowType(value: Any) -> Bool {
         let t = type(of: value)
         return String.self == t
     }

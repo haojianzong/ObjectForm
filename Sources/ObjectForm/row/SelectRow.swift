@@ -33,7 +33,7 @@ public class SelectRow<T>: BaseRow where T: SelectRowConvertible {
     }
 
     // Select row can define its outputValue
-    override func isValueMatchRowType(value: Any) -> Bool {
+    open override func isValueMatchRowType(value: Any) -> Bool {
         return true
     }
 
