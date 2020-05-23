@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 /// Model for a row that is a button
-open ButtonRow: BaseRow {
+open class ButtonRow: BaseRow {
 
     public override var baseValue: CustomStringConvertible? {
         get { return nil }
