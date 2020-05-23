@@ -31,7 +31,7 @@ public class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable
         return value?.description ?? ""
     }
 
-    override func isValueMatchRowType(value: Any) -> Bool {
+    open override func isValueMatchRowType(value: Any) -> Bool {
         let t = type(of: value)
         return T.self == t
     }
