@@ -48,7 +48,7 @@ open class FormInputCell: UITableViewCell {
         hStack.pinMargins(to: contentView, edges: [.leading, .trailing])
     }
 
-    required init(coder aDecoder: NSCoder) {
+  required public init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

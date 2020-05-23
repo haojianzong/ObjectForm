@@ -24,11 +24,11 @@ open class ButtonRow: BaseRow {
 
     let actionTag: String
 
-    override var description: String {
+  open override var description: String {
         return "<ButtonRow> \(title ?? "")"
     }
 
-    required init(title: String, icon: String, actionTag: String) {
+  required public init(title: String, icon: String, actionTag: String) {
         self.actionTag = actionTag
 
         self.cell = ButtonCell()
