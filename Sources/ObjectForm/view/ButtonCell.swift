@@ -13,8 +13,16 @@ import UIKit
 class ButtonCell: FormInputCell {
 
     override func setup(_ row: BaseRow) {
-        titleLabel.text = row.title
-        titleLabel.textColor = .blue
+        guard let row = row as? ButtonRow else {
+            assertionFailure("row type does not match")
+            return
+        }
+
+        imageView?.image = row.image
+
+        textLabel?.text = row.title
+        textLabel?.font = .systemFont(ofSize: 18.0, weight: .medium)
+        textLabel?.textColor = row.tintColor
 
         textField.isUserInteractionEnabled = false
     }

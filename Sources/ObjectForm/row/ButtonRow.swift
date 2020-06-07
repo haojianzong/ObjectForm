@@ -23,19 +23,23 @@ public class ButtonRow: BaseRow {
     var cell: ButtonCell
 
     public let actionTag: String
+    public let image: UIImage
+    public let tintColor: UIColor
 
     public override var description: String {
         return "<ButtonRow> \(title ?? "")"
     }
 
-    public required init(title: String, icon: String, actionTag: String) {
+    public required init(title: String, image: UIImage, tintColor: UIColor, actionTag: String) {
         self.actionTag = actionTag
+        self.image = image
+        self.tintColor = tintColor
 
         self.cell = ButtonCell()
 
         super.init()
         self.title = title
-        self.icon = icon
+
         self.kvcKey = nil
         self.placeholder = nil
     }
