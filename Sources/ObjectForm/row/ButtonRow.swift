@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 /// Model for a row that is a button
-class ButtonRow: BaseRow {
+public class ButtonRow: BaseRow {
 
     public override var baseValue: CustomStringConvertible? {
         get { return nil }
@@ -22,20 +22,24 @@ class ButtonRow: BaseRow {
 
     var cell: ButtonCell
 
-    let actionTag: String
+    public let actionTag: String
+    public let image: UIImage
+    public let tintColor: UIColor
 
-    override var description: String {
+    public override var description: String {
         return "<ButtonRow> \(title ?? "")"
     }
 
-    required init(title: String, icon: String, actionTag: String) {
+    public required init(title: String, image: UIImage, tintColor: UIColor, actionTag: String) {
         self.actionTag = actionTag
+        self.image = image
+        self.tintColor = tintColor
 
         self.cell = ButtonCell()
 
         super.init()
         self.title = title
-        self.icon = icon
+
         self.kvcKey = nil
         self.placeholder = nil
     }
