@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 /// Model for a row that is a button
-class ButtonRow: BaseRow {
+public class ButtonRow: BaseRow {
 
     public override var baseValue: CustomStringConvertible? {
         get { return nil }
@@ -22,13 +22,13 @@ class ButtonRow: BaseRow {
 
     var cell: ButtonCell
 
-    let actionTag: String
+    public let actionTag: String
 
-    override var description: String {
+    public override var description: String {
         return "<ButtonRow> \(title ?? "")"
     }
 
-    required init(title: String, icon: String, actionTag: String) {
+    public required init(title: String, icon: String, actionTag: String) {
         self.actionTag = actionTag
 
         self.cell = ButtonCell()

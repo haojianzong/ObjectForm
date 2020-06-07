@@ -74,6 +74,8 @@ class FruitFormData: NSObject, FormDataSource {
                                    kvcKey: "retailer",
                                    value: fruit.retailer,
                                    listOfValues: ["Walmart", "McDonald", "Carrefour"]))
+
+        basicRows.append(ButtonRow(title: "Delete", icon: "test", actionTag: "test"))
     }
 
     override init() { fatalError("not implemented") }
