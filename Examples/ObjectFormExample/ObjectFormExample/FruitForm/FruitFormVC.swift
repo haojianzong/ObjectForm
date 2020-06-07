@@ -71,10 +71,20 @@ extension FruitFormVC: UITableViewDelegate {
         case let textViewRow as TextViewRow:
             textViewRow.cell.showTextView(in: self)
 
+        case let buttonRow as ButtonRow:
+            showAlert(title: "Button tapped", message: "ActionTag: \(buttonRow.actionTag)")
+
         default:
             break
         }
     }
+
+    private func showAlert(title: String, message: String?) {
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+        self.present(alertView, animated: true)
+    }
+
 }
 
 extension FruitFormVC: UITableViewDataSource {

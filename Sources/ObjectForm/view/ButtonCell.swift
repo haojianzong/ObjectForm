@@ -15,6 +15,8 @@ class ButtonCell: FormInputCell {
     override func setup(_ row: BaseRow) {
         titleLabel.text = row.title
         titleLabel.textColor = .blue
+
+        textField.isUserInteractionEnabled = false
     }
 
 }
