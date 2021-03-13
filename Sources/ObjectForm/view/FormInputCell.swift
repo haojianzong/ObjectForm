@@ -37,15 +37,23 @@ open class FormInputCell: UITableViewCell {
         return textField
     }()
 
+    private let hStack = UIStackView()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        let hStack = UIStackView(arrangedSubviews: [titleLabel, textField])
+        hStack.addArrangedSubview(titleLabel)
+        hStack.addArrangedSubview(textField)
+
         contentView.addSubview(hStack)
         hStack.setCustomSpacing(16.0, after: titleLabel)
         hStack.setCustomSpacing(8.0, after: textField)
         hStack.pinEdges(to: contentView, edges: [.top, .bottom])
         hStack.pinMargins(to: contentView, edges: [.leading, .trailing])
+    }
+
+    public func appendView(view: UIView) {
+        hStack.addArrangedSubview(view)
     }
 
     public required init(coder aDecoder: NSCoder) {

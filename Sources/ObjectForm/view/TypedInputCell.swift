@@ -49,6 +49,10 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
         }
     }
 
+    // For iOS14, the picker shows directly in the row
+    // For iOS < 14, the picker shows as the keyboard
+    private var datePicker: UIDatePicker?
+
     func updateKeyboardType(row: BaseRow) {
         switch T.self {
         case is String.Type:
@@ -63,7 +67,15 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
 
             let datePicker = UIDatePicker()
             datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
-            textField.inputView = datePicker
+
+            if #available(iOS 14, *) {
+                self.datePicker = datePicker
+                appendView(view: datePicker)
+                textField.isHidden = true
+            } else {
+                textField.isHidden = false
+                textField.inputView = datePicker
+            }
 
             if let date = row.baseValue as? Date {
                 datePicker.date = date
@@ -136,5 +148,4 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
 
         return !isDatePicker
     }
-
 }
