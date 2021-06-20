@@ -18,6 +18,12 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
         return dateFormatter
     }()
 
+    private var numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 5
+        return formatter
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -41,7 +47,7 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
         case is String.Type:
             return text
         case is Double.Type:
-            return Double(text) ?? Double(0)
+            return (numberFormatter.number(from: text) ?? 0).doubleValue
         case is Date.Type:
             return dateFormatter.date(from: text)
         default:
@@ -92,8 +98,12 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
         if let number = row.baseValue as? Double, number < Double.ulpOfOne {
             // clear the text so that user can start input from integer value
             textField.text = ""
+        } else if let double = row.baseValue as? Double {
+            textField.text = numberFormatter.string(from: double as NSNumber)
+
         } else if let date = row.baseValue as? Date {
             textField.text = dateFormatter.string(from: date)
+
         } else {
             textField.text = row.description
         }
