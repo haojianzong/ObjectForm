@@ -20,7 +20,6 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
 
     private var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 5
         return formatter
     }()
 
