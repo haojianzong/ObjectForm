@@ -11,6 +11,7 @@ import UIKit
 // Provide concrete type to make your own rows
 public typealias StringRow = TypedRow<String>
 public typealias DoubleRow = TypedRow<Double>
+public typealias DecimalRow = TypedRow<NSDecimalNumber> // Objective does not support Decimal type
 public typealias DateRow = TypedRow<Date>
 
 // A generic model for inputing a value

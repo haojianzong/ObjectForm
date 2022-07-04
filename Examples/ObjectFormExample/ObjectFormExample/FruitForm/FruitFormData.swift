@@ -47,11 +47,11 @@ class FruitFormData: NSObject, FormDataSource {
 
         }))
 
-        basicRows.append(DoubleRow(title: "Price",
-                                   icon: "",
-                                   kvcKey: "price",
-                                   value: fruit.price,
-                                   placeholder: ""))
+        basicRows.append(DecimalRow(title: "Price",
+                                    icon: "",
+                                    kvcKey: "price",
+                                    value: fruit.price,
+                                    placeholder: ""))
 
         basicRows.append(DoubleRow(title: "Weight",
                                    icon: "",

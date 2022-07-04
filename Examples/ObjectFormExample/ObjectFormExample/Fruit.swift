@@ -10,13 +10,13 @@ import Foundation
 
 @objc class Fruit: NSObject {
     @objc dynamic var name: String?
-    @objc dynamic var price: Double = 0
+    @objc dynamic var price: NSDecimalNumber = 0
     @objc dynamic var weight: Double = 0
     @objc dynamic var retailer: String?
     @objc dynamic var note: String?
     @objc dynamic var date: Date?
 
-    convenience init(name: String?, price: Double, weight: Double, retailer: String?, note: String?, date: Date? = Date()) {
+    convenience init(name: String?, price: NSDecimalNumber, weight: Double, retailer: String?, note: String?, date: Date? = Date()) {
         self.init()
         self.name = name
         self.price = price

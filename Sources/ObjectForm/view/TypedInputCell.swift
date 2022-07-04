@@ -48,6 +48,8 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
             return text
         case is Double.Type:
             return (numberFormatter.number(from: text) ?? 0).doubleValue
+        case is NSDecimalNumber.Type:
+            return NSDecimalNumber(string: text) ?? NSDecimalNumber(0)
         case is Date.Type:
             return dateFormatter.date(from: text)
         default:
@@ -65,10 +67,10 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
             textField.keyboardType = .default
             textField.addTarget(self, action: #selector(textFieldValueChange(_ :)), for: .editingChanged)
 
-        case is Double.Type:
+        case is Double.Type, is NSDecimalNumber.Type:
             textField.keyboardType = .decimalPad
             textField.addTarget(self, action: #selector(textFieldValueChange(_ :)), for: .editingChanged)
-
+            
         case is Date.Type:
 
             let datePicker = UIDatePicker()
@@ -98,9 +100,15 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
         if let number = row.baseValue as? Double, number < Double.ulpOfOne {
             // clear the text so that user can start input from integer value
             textField.text = ""
+        } else if let decimal = row.baseValue as? NSDecimalNumber, decimal == 0 {
+            textField.text = ""
+            
         } else if let double = row.baseValue as? Double {
             textField.text = numberFormatter.string(from: double as NSNumber)
 
+        } else if let decimal = row.baseValue as? NSDecimalNumber {
+            textField.text = String(describing: decimal)
+            
         } else if let date = row.baseValue as? Date {
             textField.text = dateFormatter.string(from: date)
 
