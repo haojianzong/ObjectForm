@@ -53,6 +53,7 @@ In my application ([a personal finance app](https://xxz.jakehao.com)), I use Obj
 
 - `StringRow`: Row to support string input, full keyboard
 - `DoubleRow`: Row to support number input, numeric keyboard
+- `DecimalRow`: Row to support number input, numeric keyboard, with NSDecimalNumber type
 - `DateRow`: Row to bind Date value
 
 ### Cells
