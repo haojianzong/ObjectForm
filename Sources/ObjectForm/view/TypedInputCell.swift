@@ -49,7 +49,12 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
         case is Double.Type:
             return (numberFormatter.number(from: text) ?? 0).doubleValue
         case is NSDecimalNumber.Type:
-            return NSDecimalNumber(string: text) ?? NSDecimalNumber(0)
+            let decimal = NSDecimalNumber(string: text)
+            if decimal == NSDecimalNumber.notANumber {
+                return NSDecimalNumber(0)
+            }
+                
+            return decimal
         case is Date.Type:
             return dateFormatter.date(from: text)
         default:
