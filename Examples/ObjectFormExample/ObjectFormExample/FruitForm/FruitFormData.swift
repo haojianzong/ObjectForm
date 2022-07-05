@@ -12,7 +12,7 @@ import UIKit
 class FruitFormData: NSObject, FormDataSource {
     typealias BindModel = Fruit
 
-    var basicRows: [BaseRow] = []
+    var basicRows: [any BaseRow] = []
 
     func numberOfSections() -> Int {
         return 1
@@ -25,7 +25,7 @@ class FruitFormData: NSObject, FormDataSource {
         }
     }
 
-    func row(at indexPath: IndexPath) -> BaseRow {
+    func row(at indexPath: IndexPath) -> any BaseRow {
         switch indexPath.section {
         case 0: return basicRows[indexPath.row]
         default: fatalError()
