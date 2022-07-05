@@ -7,33 +7,25 @@
 
 import Foundation
 
-public class TextViewRow: BaseRow {
+public class TextViewRow: NSObject, BaseRow {
 
-    public override var baseCell: FormInputCell {
-        return cell
-    }
+    public lazy var baseCell: FormInputCell = {
+        return TextViewInputCell()
+    }()
 
-    public override var baseValue: CustomStringConvertible? {
+    public var baseValue: CustomStringConvertible? {
         get { return value }
         set { value = newValue as? String }
     }
 
+    public var title: String?
+    public var icon: String?
+    public var kvcKey: String?
+    public var placeholder: String?
+
     var value: String?
 
-    public var cell: TextViewInputCell
-
-    public override var description: String {
-        return "<TextViewRow> \(title ?? "")"
-    }
-
-    open override func isValueMatchRowType(value: Any) -> Bool {
-        let t = type(of: value)
-        return String.self == t
-    }
-
     public required init(title: String, kvcKey: String, value: String?) {
-        self.cell = TextViewInputCell()
-
         super.init()
 
         self.title = title

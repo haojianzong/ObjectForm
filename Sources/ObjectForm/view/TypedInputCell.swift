@@ -124,20 +124,6 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
         updateKeyboardType(row: row)
 
         textField.placeholder = row.placeholder
-
-        if row.validationFailed == true {
-            if #available(iOS 13, *) {
-                titleLabel.textColor = .systemRed
-            } else {
-                titleLabel.textColor = .red
-            }
-        } else {
-            if #available(iOS 13, *) {
-                titleLabel.textColor = .label
-            } else {
-                titleLabel.textColor = .black
-            }
-        }
     }
 
     @objc private func doneBtnTapped() {
