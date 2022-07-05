@@ -19,11 +19,9 @@ public protocol Bindable {
 public protocol FormDataSource: Bindable {
     func numberOfSections() -> Int
     func numberOfRows(at section: Int) -> Int
-    func row(at indexPath: IndexPath) -> BaseRow
+    func row(at indexPath: IndexPath) -> any BaseRow
 
     func updateItem(at indexPath: IndexPath, value: Any?) -> Bool
-
-    func validateData() -> Bool
 }
 
 extension FormDataSource {
@@ -34,35 +32,13 @@ extension FormDataSource {
             assertionFailure("Row keyPath should not be empty")
             return false
         }
-        guard checkTypeMatch(row: currentRow, value: value) else {
-            assertionFailure("Type for value and cell must match")
-            return false
-        }
+        // TODO: Check type
+//        guard checkTypeMatch(row: currentRow, value: value) else {
+//            assertionFailure("Type for value and cell must match")
+//            return false
+//        }
         bindModel.setValue(value, forKeyPath: keyPath)
         return true
     }
 
-    private func checkTypeMatch(row: BaseRow, value: Any?) -> Bool {
-        guard let value = value else {
-            return false
-        }
-        return row.isValueMatchRowType(value: value)
-    }
-
-    public func validateData() -> Bool {
-        var isValid = true
-
-        for section in 0..<numberOfSections() {
-            for rowIndex in 0..<numberOfRows(at: section) {
-                let currentRow = row(at: IndexPath(row: rowIndex, section: section))
-
-                if let validator = currentRow.validator, validator() == false {
-                    isValid = false
-                    currentRow.validationFailed = true
-                }
-            }
-        }
-
-        return isValid
-    }
 }

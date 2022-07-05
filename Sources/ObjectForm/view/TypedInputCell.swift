@@ -66,7 +66,7 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
     // For iOS < 14, the picker shows as the keyboard
     private var datePicker: UIDatePicker?
 
-    func updateKeyboardType(row: BaseRow) {
+    func updateKeyboardType(row: any BaseRow) {
         switch T.self {
         case is String.Type:
             textField.keyboardType = .default
@@ -90,8 +90,9 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
                 textField.inputView = datePicker
             }
 
-            if let date = row.baseValue as? Date {
-                datePicker.date = date
+            // Concrete type
+            if let row = row as? TypedRow<Date> {
+                datePicker.date = row.value
             }
 
         default:
@@ -99,23 +100,23 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
         }
     }
 
-    public override func setup(_ row: BaseRow) {
+    public override func setup(_ row: any BaseRow) {
 
         titleLabel.text = row.title
-        if let number = row.baseValue as? Double, number < Double.ulpOfOne {
+        if let row = row as? TypedRow<Double>, row.value < Double.ulpOfOne {
             // clear the text so that user can start input from integer value
             textField.text = ""
-        } else if let decimal = row.baseValue as? NSDecimalNumber, decimal == 0 {
+        } else if let row = row as? TypedRow<NSDecimalNumber>, row.value == 0 {
             textField.text = ""
-            
-        } else if let double = row.baseValue as? Double {
-            textField.text = numberFormatter.string(from: double as NSNumber)
 
-        } else if let decimal = row.baseValue as? NSDecimalNumber {
-            textField.text = String(describing: decimal)
-            
-        } else if let date = row.baseValue as? Date {
-            textField.text = dateFormatter.string(from: date)
+        } else if let row = row as? TypedRow<Double> {
+            textField.text = numberFormatter.string(from: row.value as NSNumber)
+
+        } else if let row = row as? TypedRow<NSDecimalNumber> {
+            textField.text = String(describing: row.value)
+
+        } else if let row = row as? TypedRow<Date> {
+            textField.text = dateFormatter.string(from: row.value)
 
         } else {
             textField.text = row.description
@@ -124,20 +125,6 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
         updateKeyboardType(row: row)
 
         textField.placeholder = row.placeholder
-
-        if row.validationFailed == true {
-            if #available(iOS 13, *) {
-                titleLabel.textColor = .systemRed
-            } else {
-                titleLabel.textColor = .red
-            }
-        } else {
-            if #available(iOS 13, *) {
-                titleLabel.textColor = .label
-            } else {
-                titleLabel.textColor = .black
-            }
-        }
     }
 
     @objc private func doneBtnTapped() {

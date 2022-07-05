@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Jake on 3/2/20.
 //
@@ -15,36 +15,26 @@ public typealias DecimalRow = TypedRow<NSDecimalNumber> // Objective does not su
 public typealias DateRow = TypedRow<Date>
 
 // A generic model for inputing a value
-public class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable {
-    public override var baseValue: CustomStringConvertible? {
-        get { return value }
-        set { value = newValue as? T }
-    }
+public class TypedRow<T>: NSObject, BaseRow where T: CustomStringConvertible, T: Equatable {
 
-    public override var baseCell: FormInputCell {
-        return cell
-    }
+    public lazy var baseCell: FormInputCell = {
+        return TypedInputCell<T>()
+    }()
 
-    var value: T?
-    public let cell: TypedInputCell<T>
+    public var title: String?
+    public var icon: String?
+    public var kvcKey: String?
+    public var placeholder: String?
 
-    public override var description: String {
-        return value?.description ?? ""
-    }
+    public var value: T
 
-    open override func isValueMatchRowType(value: Any) -> Bool {
-        let t = type(of: value)
-        return T.self == t
-    }
-
-    public required init(title: String, icon: String, kvcKey: String, value: T?, placeholder: String? = nil, validator: Validator? = nil) {
-        self.cell = TypedInputCell()
+    public required init(title: String, icon: String, kvcKey: String, value: T, placeholder: String? = nil) {
+        self.value = value
         super.init()
+
         self.title = title
         self.icon = icon
-        self.value = value
         self.kvcKey = kvcKey
         self.placeholder = placeholder
-        self.validator = validator
     }
 }

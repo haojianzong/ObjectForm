@@ -9,34 +9,21 @@
 import Foundation
 import UIKit
 
-protocol Taggable: AnyObject {
+public protocol Taggable: AnyObject {
     var kvcKey: String? { get set }
 }
 
-open class BaseRow : NSObject, Taggable {
-    public typealias Validator = (() -> Bool)
-
-    var title: String?
-    var icon: String?
+public protocol BaseRow : NSObject, Taggable {
+    var title: String? { get set }
+    var icon: String? { get set }
 
     // Update object properties using the key with key-value-coding
-    var kvcKey: String?
+    var kvcKey: String? { get set }
 
-    var placeholder: String?
-    var validator: Validator?
-    var validationFailed: Bool?
+    var placeholder: String? { get set }
+    
+    associatedtype RowValueType: CustomStringConvertible, Equatable
+    var value: RowValueType { get set }
 
-    open var baseCell: FormInputCell {
-        fatalError("Subclass should override")
-    }
-
-    open var baseValue: CustomStringConvertible? {
-        set { fatalError("Subclass should override") }
-        get { fatalError("Subclass should override") }
-    }
-
-    // Used to check type when updating object's value with key `-value-coding
-    open func isValueMatchRowType(value: Any) -> Bool {
-        fatalError("Subclass must override")
-    }
+    var baseCell: FormInputCell { get set }
 }

@@ -29,11 +29,6 @@ class FruitFormVC: UIViewController {
     }
 
     @objc private func saveButtonTapped() {
-        guard dataSource.validateData() else {
-            tableView.reloadData()
-            return
-        }
-
         navigationController?.popViewController(animated: true)
     }
 
@@ -65,14 +60,10 @@ extension FruitFormVC: UITableViewDelegate {
 
         let row = dataSource.row(at: indexPath)
         switch row {
-        case let stringSelectRow as SelectRow<String>:
-            stringSelectRow.cell.showPicker(in: self)
-            
         case let textViewRow as TextViewRow:
-            textViewRow.cell.showTextView(in: self)
-
-        case let buttonRow as ButtonRow:
-            showAlert(title: "Button tapped", message: "ActionTag: \(buttonRow.actionTag)")
+            if let cell = textViewRow.baseCell as? TextViewInputCell {
+                cell.showTextView(in: self)
+            }
 
         default:
             break
