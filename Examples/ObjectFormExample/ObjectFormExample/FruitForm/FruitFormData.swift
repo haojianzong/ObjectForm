@@ -41,11 +41,7 @@ class FruitFormData: NSObject, FormDataSource {
                                    icon: "",
                                    kvcKey: "name",
                                    value: fruit.name ?? "",
-                                   placeholder: nil,
-                                   validator: {
-                                    return !(fruit.name?.isEmpty ?? true)
-
-        }))
+                                   placeholder: nil))
 
         basicRows.append(DecimalRow(title: "Price",
                                     icon: "",
@@ -62,23 +58,6 @@ class FruitFormData: NSObject, FormDataSource {
         basicRows.append(TextViewRow(title: "Note",
                                      kvcKey: "note",
                                      value: fruit.note ?? "-"))
-
-        basicRows.append(DateRow(title: "Purchase Date",
-                                 icon: "",
-                                 kvcKey: "date",
-                                 value: fruit.date ?? Date(),
-                                 placeholder: ""))
-
-        basicRows.append(SelectRow(title: "Retailer",
-                                   icon: "",
-                                   kvcKey: "retailer",
-                                   value: fruit.retailer,
-                                   listOfValues: ["Walmart", "McDonald", "Carrefour"]))
-
-        basicRows.append(ButtonRow(title: "Delete",
-                                   image: UIImage(systemName: "trash")!,
-                                   tintColor: .systemRed,
-                                   actionTag: "deleteTag"))
     }
 
     override init() { fatalError("not implemented") }

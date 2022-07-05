@@ -22,8 +22,6 @@ public protocol FormDataSource: Bindable {
     func row(at indexPath: IndexPath) -> BaseRow
 
     func updateItem(at indexPath: IndexPath, value: Any?) -> Bool
-
-    func validateData() -> Bool
 }
 
 extension FormDataSource {
