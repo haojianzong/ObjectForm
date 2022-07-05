@@ -33,7 +33,7 @@ public class TextViewInputCell: FormInputCell {
         vc.navigationController?.pushViewController(textViewVC, animated: true)
     }
 
-    public override func setup(_ row: BaseRow) {
+    public override func setup(_ row: any BaseRow) {
         guard let row = row as? TextViewRow else {
             assertionFailure("Row type must match cell type")
             return

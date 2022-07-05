@@ -60,7 +60,7 @@ open class FormInputCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    open func setup(_ row: BaseRow) {
+    open func setup(_ row: any BaseRow) {
         fatalError("Subclass must override")
     }
 }

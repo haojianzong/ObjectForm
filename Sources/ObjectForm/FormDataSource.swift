@@ -19,7 +19,7 @@ public protocol Bindable {
 public protocol FormDataSource: Bindable {
     func numberOfSections() -> Int
     func numberOfRows(at section: Int) -> Int
-    func row(at indexPath: IndexPath) -> BaseRow
+    func row(at indexPath: IndexPath) -> any BaseRow
 
     func updateItem(at indexPath: IndexPath, value: Any?) -> Bool
 }
