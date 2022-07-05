@@ -21,7 +21,9 @@ public protocol BaseRow : NSObject, Taggable {
     var kvcKey: String? { get set }
 
     var placeholder: String? { get set }
+    
+    associatedtype RowValueType: CustomStringConvertible, Equatable
+    var value: RowValueType { get set }
 
     var baseCell: FormInputCell { get set }
-    var baseValue: CustomStringConvertible? { get set }
 }

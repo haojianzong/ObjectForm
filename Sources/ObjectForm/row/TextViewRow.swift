@@ -13,24 +13,19 @@ public class TextViewRow: NSObject, BaseRow {
         return TextViewInputCell()
     }()
 
-    public var baseValue: CustomStringConvertible? {
-        get { return value }
-        set { value = newValue as? String }
-    }
-
     public var title: String?
     public var icon: String?
     public var kvcKey: String?
     public var placeholder: String?
 
-    var value: String?
+    public var value: String
 
-    public required init(title: String, kvcKey: String, value: String?) {
+    public required init(title: String, kvcKey: String, value: String) {
+        self.value = value
         super.init()
 
         self.title = title
         self.kvcKey = kvcKey
-        self.value = value
         self.placeholder = nil
     }
 }
