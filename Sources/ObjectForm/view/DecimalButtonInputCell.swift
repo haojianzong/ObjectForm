@@ -64,6 +64,10 @@ public class DecimalButtonInputCell: FormInputCell {
     }
     
     @objc private func decimalButtonTapped() {
+        // This will be handled by the row's showDecimalInput method
+    }
+    
+    public func showDecimalInput(in viewController: UIViewController) {
         let alertController = UIAlertController(title: "Enter Number", message: nil, preferredStyle: .alert)
         
         alertController.addTextField { textField in
@@ -88,9 +92,6 @@ public class DecimalButtonInputCell: FormInputCell {
         alertController.addAction(cancelAction)
         alertController.addAction(saveAction)
         
-        // Get the current view controller to present the alert
-        if let viewController = self.window?.rootViewController {
-            viewController.present(alertController, animated: true)
-        }
+        viewController.present(alertController, animated: true)
     }
 }
