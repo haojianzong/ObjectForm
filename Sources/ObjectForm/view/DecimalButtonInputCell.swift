@@ -68,7 +68,14 @@ public class DecimalButtonInputCell: FormInputCell {
         button.addTarget(self, action: #selector(decimalButtonTapped), for: .touchUpInside)
         self.decimalButton = button
 
-        let hStack = UIStackView(arrangedSubviews: [UIView(), button])
+        let pencilImageView = UIImageView(image: UIImage(systemName: "rectangle.and.pencil.and.ellipsis"))
+        pencilImageView.tintColor = .systemBlue
+        pencilImageView.contentMode = .scaleAspectFit
+        pencilImageView.setContentHuggingPriority(.required, for: .horizontal)
+        pencilImageView.setContentCompressionResistancePriority(.required, for: .horizontal)
+
+        let hStack = UIStackView(arrangedSubviews: [UIView(), button, pencilImageView])
+        hStack.spacing = 8
         appendView(view: hStack)
         
         if row.validationFailed == true {
@@ -83,7 +90,7 @@ public class DecimalButtonInputCell: FormInputCell {
     }
     
     public func showDecimalInput(in viewController: UIViewController) {
-        let alertController = UIAlertController(title: "Enter Number", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "", message: nil, preferredStyle: .alert)
         
         alertController.addTextField { textField in
             textField.keyboardType = .decimalPad
