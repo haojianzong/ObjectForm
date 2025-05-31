@@ -15,4 +15,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run tests
-        run: xcodebuild build -destination "name=iPhone 16" -scheme "ObjectForm-Package"
+        run: xcodebuild build -destination "name=iPhone 16" -scheme "ObjectForm"
