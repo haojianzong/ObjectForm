@@ -26,9 +26,9 @@ public class DecimalButtonInputCell: FormInputCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var outputValue: Decimal? {
+    var outputValue: NSDecimalNumber? {
         if let text = decimalButton?.title(for: .normal) {
-            return Decimal(string: text) ?? 0
+            return NSDecimalNumber(string: text)
         }
         return nil
     }
@@ -46,8 +46,8 @@ public class DecimalButtonInputCell: FormInputCell {
         let button = UIButton(type: .system)
         button.titleLabel?.font = .systemFont(ofSize: 17.0)
         button.titleLabel?.textAlignment = .right
-        if let number = row.baseValue as? Decimal {
-            button.setTitle(numberFormatter.string(from: number as NSDecimalNumber), for: .normal)
+        if let number = row.baseValue as? NSDecimalNumber {
+            button.setTitle(numberFormatter.string(from: number), for: .normal)
         } else {
             button.setTitle("", for: .normal)
         }
@@ -73,18 +73,19 @@ public class DecimalButtonInputCell: FormInputCell {
         alertController.addTextField { textField in
             textField.keyboardType = .decimalPad
             if let currentValue = self.outputValue {
-                textField.text = self.numberFormatter.string(from: currentValue as NSDecimalNumber)
+                textField.text = self.numberFormatter.string(from: currentValue)
             }
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
             guard let self = self,
-                  let text = alertController.textFields?.first?.text,
-                  let number = Decimal(string: text) else {
+                  let text = alertController.textFields?.first?.text else {
                 return
             }
-            
+
+            let number = NSDecimalNumber(string: text)
+
             self.decimalButton?.setTitle(text, for: .normal)
             self.delegate?.cellDidChangeValue(self, value: number)
         }

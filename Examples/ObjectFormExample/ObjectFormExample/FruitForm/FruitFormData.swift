@@ -56,7 +56,7 @@ class FruitFormData: NSObject, FormDataSource {
         basicRows.append(DecimalButtonRow(title: "Price (Button)",
                                     icon: "dollarsign.circle",
                                     kvcKey: "price",
-                                    value: fruit.price as Decimal,
+                                    value: fruit.price,
                                     placeholder: "Enter price"))
 
         basicRows.append(DoubleRow(title: "Weight",

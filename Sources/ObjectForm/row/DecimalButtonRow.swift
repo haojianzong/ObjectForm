@@ -12,14 +12,14 @@ import UIKit
 public class DecimalButtonRow: BaseRow {
     public override var baseValue: CustomStringConvertible? {
         get { return value }
-        set { value = newValue as? Decimal }
+        set { value = newValue as? NSDecimalNumber }
     }
 
     public override var baseCell: FormInputCell {
         return cell
     }
 
-    var value: Decimal?
+    var value: NSDecimalNumber?
     public let cell: DecimalButtonInputCell
 
     public override var description: String {
@@ -27,10 +27,10 @@ public class DecimalButtonRow: BaseRow {
     }
 
     open override func isValueMatchRowType(value: Any) -> Bool {
-        return value is Decimal
+        return value is NSDecimalNumber
     }
 
-    public required init(title: String, icon: String, kvcKey: String, value: Decimal?, placeholder: String? = nil, validator: Validator? = nil) {
+    public required init(title: String, icon: String, kvcKey: String, value: NSDecimalNumber?, placeholder: String? = nil, validator: Validator? = nil) {
         self.cell = DecimalButtonInputCell()
         super.init()
         self.title = title
@@ -41,7 +41,6 @@ public class DecimalButtonRow: BaseRow {
         self.validator = validator
     }
     
-    // Add method to show the decimal input
     public func showDecimalInput(in viewController: UIViewController) {
         cell.showDecimalInput(in: viewController)
     }
