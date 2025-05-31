@@ -111,6 +111,10 @@ public class DecimalButtonInputCell: FormInputCell {
                 return
             }
 
+            guard number != outputValue else {
+                return
+            }
+
             self.decimalButton?.setTitle(text, for: .normal)
             self.delegate?.cellDidChangeValue(self, value: number)
         }
