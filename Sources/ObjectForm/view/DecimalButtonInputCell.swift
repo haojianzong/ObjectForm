@@ -12,12 +12,14 @@ import UIKit
 public class DecimalButtonInputCell: FormInputCell {
     private var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 20
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = ""
         return formatter
     }()
     
+    var numberLocale: Locale?
     private var decimalButton: UIButton?
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -32,8 +34,12 @@ public class DecimalButtonInputCell: FormInputCell {
         }
         return nil
     }
-    
+
     public override func setup(_ row: BaseRow) {
+        if let numberLocale {
+            numberFormatter.locale = numberLocale
+        }
+
         // Remove any existing views before setting up
         if let decimalButton = self.decimalButton {
             decimalButton.removeFromSuperview()
@@ -85,6 +91,9 @@ public class DecimalButtonInputCell: FormInputCell {
             }
 
             let number = NSDecimalNumber(string: text)
+            guard number != NSDecimalNumber.notANumber else {
+                return
+            }
 
             self.decimalButton?.setTitle(text, for: .normal)
             self.delegate?.cellDidChangeValue(self, value: number)

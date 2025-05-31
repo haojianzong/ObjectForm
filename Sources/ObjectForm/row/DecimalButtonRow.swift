@@ -30,8 +30,10 @@ public class DecimalButtonRow: BaseRow {
         return value is NSDecimalNumber
     }
 
-    public required init(title: String, icon: String, kvcKey: String, value: NSDecimalNumber?, placeholder: String? = nil, validator: Validator? = nil) {
+    public required init(title: String, icon: String, numberLocale: Locale, kvcKey: String, value: NSDecimalNumber?, placeholder: String? = nil, validator: Validator? = nil) {
         self.cell = DecimalButtonInputCell()
+        self.cell.numberLocale = numberLocale
+
         super.init()
         self.title = title
         self.icon = icon
