@@ -13,8 +13,6 @@ jobs:
     env: 
       DEVELOPER_DIR: /Applications/Xcode_16.1.app/Contents/Developer
     steps:
-      - uses: actions/checkout@v1
-      - name: Generate xcodeproj
-        run: swift package generate-xcodeproj
+      - uses: actions/checkout@v2
       - name: Run tests
         run: xcodebuild build -destination "name=iPhone 16" -scheme "ObjectForm-Package"
