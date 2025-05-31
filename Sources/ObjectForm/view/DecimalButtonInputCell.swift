@@ -13,6 +13,7 @@ public class DecimalButtonInputCell: FormInputCell {
     private var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
+        formatter.minimumFractionDigits = 0
         formatter.currencySymbol = ""
         return formatter
     }()
