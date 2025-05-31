@@ -65,7 +65,6 @@ public class DecimalButtonInputCell: FormInputCell {
         }
 
         button.isUserInteractionEnabled = false
-        button.addTarget(self, action: #selector(decimalButtonTapped), for: .touchUpInside)
         self.decimalButton = button
 
         let pencilImageView = UIImageView(image: UIImage(systemName: "rectangle.and.pencil.and.ellipsis"))
@@ -83,10 +82,6 @@ public class DecimalButtonInputCell: FormInputCell {
         } else {
             titleLabel.textColor = .label
         }
-    }
-    
-    @objc private func decimalButtonTapped() {
-        // This will be handled by the row's showDecimalInput method
     }
     
     public func showDecimalInput(in viewController: UIViewController) {
