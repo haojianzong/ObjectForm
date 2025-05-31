@@ -73,6 +73,9 @@ extension FruitFormVC: UITableViewDelegate {
 
         case let buttonRow as ButtonRow:
             showAlert(title: "Button tapped", message: "ActionTag: \(buttonRow.actionTag)")
+            
+        case let decimalButtonRow as DecimalButtonRow:
+            decimalButtonRow.showDecimalInput(in: self)
 
         default:
             break

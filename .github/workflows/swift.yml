@@ -11,10 +11,8 @@ jobs:
     name: Test with SPM
     runs-on: macos-latest    
     env: 
-      DEVELOPER_DIR: /Applications/Xcode_11.3.1.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_16.1.app/Contents/Developer
     steps:
-      - uses: actions/checkout@v1
-      - name: Generate xcodeproj
-        run: swift package generate-xcodeproj
+      - uses: actions/checkout@v2
       - name: Run tests
-        run: xcodebuild build -destination "name=iPhone 11" -scheme "ObjectForm-Package"
+        run: xcodebuild build -destination "name=iPhone 16" -scheme "ObjectForm"
