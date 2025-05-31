@@ -37,8 +37,12 @@ public class TypedRow<T>: BaseRow where T: CustomStringConvertible, T: Equatable
         return T.self == t
     }
 
-    public required init(title: String, icon: String, kvcKey: String, value: T?, placeholder: String? = nil, validator: Validator? = nil) {
+    public required init(title: String, icon: String, kvcKey: String, value: T?, placeholder: String? = nil, validator: Validator? = nil, editable: Bool = true) {
         self.cell = TypedInputCell()
+        if !editable {
+            self.cell.textField.isEnabled = false
+        }
+
         super.init()
         self.title = title
         self.icon = icon
