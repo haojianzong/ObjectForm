@@ -74,7 +74,7 @@ public class DecimalButtonInputCell: FormInputCell {
         pencilImageView.setContentHuggingPriority(.required, for: .horizontal)
         pencilImageView.setContentCompressionResistancePriority(.required, for: .horizontal)
 
-        let hStack = UIStackView(arrangedSubviews: [UIView(), button, pencilImageView])
+        let hStack = UIStackView(arrangedSubviews: [UIView(), pencilImageView, button])
         hStack.spacing = 8
         appendView(view: hStack)
         
