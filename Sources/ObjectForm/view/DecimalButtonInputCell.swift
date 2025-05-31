@@ -10,14 +10,19 @@ import Foundation
 import UIKit
 
 public class DecimalButtonInputCell: FormInputCell {
-    private var numberFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.minimumFractionDigits = 0
-        formatter.currencySymbol = ""
-        return formatter
+    private lazy var numberFormatter: NumberFormatter = {
+        return Self.factoryNumberFormatter(usesGroupingSeparator: true)
     }()
-    
+
+    private static func factoryNumberFormatter(usesGroupingSeparator: Bool) -> NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 20
+        formatter.currencySymbol = ""
+        formatter.usesGroupingSeparator = usesGroupingSeparator
+        return formatter
+    }
+
     var numberLocale: Locale?
     private var decimalButton: UIButton?
 
@@ -30,10 +35,17 @@ public class DecimalButtonInputCell: FormInputCell {
     }
     
     var outputValue: NSDecimalNumber? {
-        if let text = decimalButton?.title(for: .normal) {
-            return NSDecimalNumber(string: text)
+        guard let text = decimalButton?.title(for: .normal) else {
+            return nil
         }
-        return nil
+
+        let number = getNumberFrom(text: text)
+
+        guard number != .notANumber else {
+            return nil
+        }
+
+        return number
     }
 
     private func createButton() -> UIButton {
@@ -84,7 +96,19 @@ public class DecimalButtonInputCell: FormInputCell {
             titleLabel.textColor = .label
         }
     }
-    
+
+    // Try to get a number from the text using the number formatter with and without the grouping separator
+    private func getNumberFrom(text: String) -> NSDecimalNumber {
+        let noSeparatorFormatter = Self.factoryNumberFormatter(usesGroupingSeparator: false)
+        if let number = noSeparatorFormatter.number(from: text) {
+            return NSDecimalNumber(decimal: number.decimalValue)
+        }
+        if let number2 = numberFormatter.number(from: text) {
+            return NSDecimalNumber(decimal: number2.decimalValue)
+        }
+        return NSDecimalNumber.notANumber
+    }
+
     public func showDecimalInput(in viewController: UIViewController) {
         let alertController = UIAlertController(title: "", message: nil, preferredStyle: .alert)
         
@@ -102,7 +126,7 @@ public class DecimalButtonInputCell: FormInputCell {
                 return
             }
 
-            let number = NSDecimalNumber(string: text)
+            let number = getNumberFrom(text: text)
             guard number != NSDecimalNumber.notANumber else {
                 return
             }
@@ -111,7 +135,7 @@ public class DecimalButtonInputCell: FormInputCell {
                 return
             }
 
-            self.decimalButton?.setTitle(text, for: .normal)
+            self.decimalButton?.setTitle(numberFormatter.string(from: number), for: .normal)
             self.delegate?.cellDidChangeValue(self, value: number)
         }
         
