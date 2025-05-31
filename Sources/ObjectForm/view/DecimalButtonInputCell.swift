@@ -69,7 +69,7 @@ public class DecimalButtonInputCell: FormInputCell {
         self.decimalButton = button
 
         let pencilImageView = UIImageView(image: UIImage(systemName: "rectangle.and.pencil.and.ellipsis"))
-        pencilImageView.tintColor = .systemBlue
+        pencilImageView.tintColor = button.tintColor
         pencilImageView.contentMode = .scaleAspectFit
         pencilImageView.setContentHuggingPriority(.required, for: .horizontal)
         pencilImageView.setContentCompressionResistancePriority(.required, for: .horizontal)
