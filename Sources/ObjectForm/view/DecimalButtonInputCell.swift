@@ -35,7 +35,16 @@ public class DecimalButtonInputCell: FormInputCell {
         return nil
     }
 
+    private func createButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.titleLabel?.font = .systemFont(ofSize: 17.0)
+        button.titleLabel?.textAlignment = .right
+        return button
+    }
+
     public override func setup(_ row: BaseRow) {
+        textField.isHidden = true
+
         if let numberLocale {
             numberFormatter.locale = numberLocale
         }
@@ -47,20 +56,20 @@ public class DecimalButtonInputCell: FormInputCell {
         self.decimalButton = nil
         
         titleLabel.text = row.title
-        
-        // Create and setup the decimal button
-        let button = UIButton(type: .system)
-        button.titleLabel?.font = .systemFont(ofSize: 17.0)
-        button.titleLabel?.textAlignment = .right
+
+        let button = createButton()
         if let number = row.baseValue as? NSDecimalNumber {
             button.setTitle(numberFormatter.string(from: number), for: .normal)
         } else {
             button.setTitle("", for: .normal)
         }
+
+        button.isUserInteractionEnabled = false
         button.addTarget(self, action: #selector(decimalButtonTapped), for: .touchUpInside)
         self.decimalButton = button
-        
-        appendView(view: button)
+
+        let hStack = UIStackView(arrangedSubviews: [UIView(), button])
+        appendView(view: hStack)
         
         if row.validationFailed == true {
             titleLabel.textColor = .systemRed
