@@ -24,7 +24,29 @@ public class DecimalButtonInputCell: FormInputCell {
     }
 
     var numberLocale: Locale?
-    private var decimalButton: UIButton?
+    
+    private lazy var decimalButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.titleLabel?.font = .systemFont(ofSize: 17.0)
+        button.titleLabel?.textAlignment = .right
+        button.isUserInteractionEnabled = false
+        return button
+    }()
+    
+    private lazy var pencilImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(systemName: "rectangle.and.pencil.and.ellipsis"))
+        imageView.tintColor = decimalButton.tintColor
+        imageView.contentMode = .scaleAspectFit
+        imageView.setContentHuggingPriority(.required, for: .horizontal)
+        imageView.setContentCompressionResistancePriority(.required, for: .horizontal)
+        return imageView
+    }()
+    
+    private lazy var hStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [UIView(), pencilImageView, decimalButton])
+        stack.spacing = 8
+        return stack
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -35,7 +57,7 @@ public class DecimalButtonInputCell: FormInputCell {
     }
     
     var outputValue: NSDecimalNumber? {
-        guard let text = decimalButton?.title(for: .normal) else {
+        guard let text = decimalButton.title(for: .normal) else {
             return nil
         }
 
@@ -48,13 +70,6 @@ public class DecimalButtonInputCell: FormInputCell {
         return number
     }
 
-    private func createButton() -> UIButton {
-        let button = UIButton(type: .system)
-        button.titleLabel?.font = .systemFont(ofSize: 17.0)
-        button.titleLabel?.textAlignment = .right
-        return button
-    }
-
     public override func setup(_ row: BaseRow) {
         textField.isHidden = true
 
@@ -62,33 +77,16 @@ public class DecimalButtonInputCell: FormInputCell {
             numberFormatter.locale = numberLocale
         }
 
-        // Remove any existing views before setting up
-        if let decimalButton = self.decimalButton {
-            decimalButton.removeFromSuperview()
-        }
-        self.decimalButton = nil
-        
+        // Remove existing stack view if it exists
+        hStack.removeFromSuperview()
+        appendView(view: hStack)
         titleLabel.text = row.title
 
-        let button = createButton()
         if let number = row.baseValue as? NSDecimalNumber {
-            button.setTitle(numberFormatter.string(from: number), for: .normal)
+            decimalButton.setTitle(numberFormatter.string(from: number), for: .normal)
         } else {
-            button.setTitle("", for: .normal)
+            decimalButton.setTitle("", for: .normal)
         }
-
-        button.isUserInteractionEnabled = false
-        self.decimalButton = button
-
-        let pencilImageView = UIImageView(image: UIImage(systemName: "rectangle.and.pencil.and.ellipsis"))
-        pencilImageView.tintColor = button.tintColor
-        pencilImageView.contentMode = .scaleAspectFit
-        pencilImageView.setContentHuggingPriority(.required, for: .horizontal)
-        pencilImageView.setContentCompressionResistancePriority(.required, for: .horizontal)
-
-        let hStack = UIStackView(arrangedSubviews: [UIView(), pencilImageView, button])
-        hStack.spacing = 8
-        appendView(view: hStack)
         
         if row.validationFailed == true {
             titleLabel.textColor = .systemRed
@@ -135,7 +133,7 @@ public class DecimalButtonInputCell: FormInputCell {
                 return
             }
 
-            self.decimalButton?.setTitle(numberFormatter.string(from: number), for: .normal)
+            self.decimalButton.setTitle(numberFormatter.string(from: number), for: .normal)
             self.delegate?.cellDidChangeValue(self, value: number)
         }
         

@@ -24,6 +24,14 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
         return formatter
     }()
 
+    // For iOS14, the picker shows directly in the row
+    // For iOS < 14, the picker shows as the keyboard
+    private lazy var datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
+        return picker
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -62,10 +70,6 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
         }
     }
 
-    // For iOS14, the picker shows directly in the row
-    // For iOS < 14, the picker shows as the keyboard
-    private var datePicker: UIDatePicker?
-
     func updateKeyboardType(row: BaseRow) {
         switch T.self {
         case is String.Type:
@@ -77,18 +81,9 @@ public class TypedInputCell<T>: FormInputCell, UITextFieldDelegate {
             textField.addTarget(self, action: #selector(textFieldValueChange(_ :)), for: .editingChanged)
             
         case is Date.Type:
-
-            let datePicker = UIDatePicker()
-            datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
-
-            if #available(iOS 14, *) {
-                self.datePicker = datePicker
-                appendView(view: datePicker)
-                textField.isHidden = true
-            } else {
-                textField.isHidden = false
-                textField.inputView = datePicker
-            }
+            datePicker.removeFromSuperview()
+            appendView(view: datePicker)
+            textField.isHidden = true
 
             if let date = row.baseValue as? Date {
                 datePicker.date = date

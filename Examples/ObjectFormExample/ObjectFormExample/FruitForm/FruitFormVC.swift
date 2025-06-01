@@ -26,6 +26,7 @@ class FruitFormVC: UIViewController {
         super.init(nibName: nil, bundle: nil)
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshButtonTapped))
     }
 
     @objc private func saveButtonTapped() {
@@ -35,6 +36,10 @@ class FruitFormVC: UIViewController {
         }
 
         navigationController?.popViewController(animated: true)
+    }
+
+    @objc private func refreshButtonTapped() {
+        tableView.reloadData()
     }
 
     required init?(coder aDecoder: NSCoder) {
