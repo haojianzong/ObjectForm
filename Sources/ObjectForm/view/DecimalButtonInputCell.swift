@@ -24,6 +24,7 @@ public class DecimalButtonInputCell: FormInputCell {
     }
 
     var numberLocale: Locale?
+    private weak var alertController: UIAlertController?
     
     private lazy var decimalButton: UIButton = {
         let button = UIButton(type: .system)
@@ -109,12 +110,19 @@ public class DecimalButtonInputCell: FormInputCell {
 
     public func showDecimalInput(in viewController: UIViewController) {
         let alertController = UIAlertController(title: "", message: nil, preferredStyle: .alert)
+        self.alertController = alertController
         
-        alertController.addTextField { textField in
+        alertController.addTextField { [weak self] textField in
+            guard let self = self else { return }
             textField.keyboardType = .decimalPad
             if let currentValue = self.outputValue {
                 textField.text = self.numberFormatter.string(from: currentValue)
             }
+            
+            // Add +/- button to keyboard toolbar
+            let minusButton = KeyboardToolbarFactory.factoryKeyboardButton(title: "+/-")
+            minusButton.addTarget(self, action: #selector(self.minusButtonTapped(_:)), for: .touchUpInside)
+            textField.inputAccessoryView = KeyboardToolbarFactory.factoryKeyboardToolbar(leadingButtonList: [UIBarButtonItem(customView: minusButton)])
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -141,5 +149,19 @@ public class DecimalButtonInputCell: FormInputCell {
         alertController.addAction(saveAction)
         
         viewController.present(alertController, animated: true)
+    }
+    
+    @objc private func minusButtonTapped(_ button: UIButton) {
+        guard let textField = alertController?.textFields?.first,
+              let text = textField.text else {
+            return
+        }
+        
+        let token = "-"
+        if text.hasPrefix(token) {
+            textField.text = text.replacingOccurrences(of: token, with: "")
+        } else {
+            textField.text = token + text
+        }
     }
 }
