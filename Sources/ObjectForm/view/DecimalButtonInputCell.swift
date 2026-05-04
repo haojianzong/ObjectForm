@@ -23,6 +23,17 @@ public class DecimalButtonInputCell: FormInputCell {
         return formatter
     }
 
+    private static func textByRemovingGroupingSeparator(_ text: String, locale: Locale?) -> String {
+        let formatter = NumberFormatter()
+        formatter.locale = locale ?? .current
+
+        guard let groupingSeparator = formatter.groupingSeparator, !groupingSeparator.isEmpty else {
+            return text
+        }
+
+        return text.replacingOccurrences(of: groupingSeparator, with: "")
+    }
+
     var numberLocale: Locale?
     private weak var alertController: UIAlertController?
     
@@ -99,7 +110,9 @@ public class DecimalButtonInputCell: FormInputCell {
     // Try to get a number from the text using the number formatter with and without the grouping separator
     private func getNumberFrom(text: String) -> NSDecimalNumber {
         let noSeparatorFormatter = Self.factoryNumberFormatter(usesGroupingSeparator: false)
-        if let number = noSeparatorFormatter.number(from: text) {
+        noSeparatorFormatter.locale = numberFormatter.locale
+        let noSeparatorText = Self.textByRemovingGroupingSeparator(text, locale: numberFormatter.locale)
+        if let number = noSeparatorFormatter.number(from: noSeparatorText) {
             return NSDecimalNumber(decimal: number.decimalValue)
         }
         if let number2 = numberFormatter.number(from: text) {
